@@ -5,6 +5,7 @@ package tcc.telas;
 import Formularios.FormCliente;
 import Formularios.FormProduto;
 
+
 public class AdmFace extends javax.swing.JFrame {
 
     public AdmFace() {
@@ -91,6 +92,11 @@ public class AdmFace extends javax.swing.JFrame {
 
         botaoRelatorio.setText("Relatórios");
         botaoRelatorio.setPreferredSize(new java.awt.Dimension(127, 23));
+        botaoRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRelatorioActionPerformed(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/logotipo1.jpg"))); // NOI18N
 
@@ -271,6 +277,12 @@ public class AdmFace extends javax.swing.JFrame {
     private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
         
     }//GEN-LAST:event_consultaActionPerformed
+
+    private void botaoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRelatorioActionPerformed
+        Relatorios r = new Relatorios();
+        r.setVisible(true);
+        
+    }//GEN-LAST:event_botaoRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
