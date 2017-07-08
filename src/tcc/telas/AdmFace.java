@@ -29,8 +29,7 @@ public class AdmFace extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         botaoCadastraClientes = new javax.swing.JButton();
         botaoCadastraProdutos = new javax.swing.JButton();
-        botaoRelatorio = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        botaoReserva = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         clientes = new javax.swing.JMenu();
         cadastraCliente = new javax.swing.JMenuItem();
@@ -51,7 +50,9 @@ public class AdmFace extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         imprime = new javax.swing.JMenuItem();
         malha = new javax.swing.JMenu();
+        calculaMalha = new javax.swing.JCheckBoxMenuItem();
         reserva = new javax.swing.JMenu();
+        verReserva = new javax.swing.JMenuItem();
         estoque = new javax.swing.JMenu();
         atualiza = new javax.swing.JMenuItem();
 
@@ -90,15 +91,12 @@ public class AdmFace extends javax.swing.JFrame {
             }
         });
 
-        botaoRelatorio.setText("Relatórios");
-        botaoRelatorio.setPreferredSize(new java.awt.Dimension(127, 23));
-        botaoRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        botaoReserva.setText("Reservas");
+        botaoReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRelatorioActionPerformed(evt);
+                botaoReservaActionPerformed(evt);
             }
         });
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/logotipo1.jpg"))); // NOI18N
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -121,14 +119,29 @@ public class AdmFace extends javax.swing.JFrame {
         clientes.add(editaCliente);
 
         excluiCliente.setText("Excluir Cliente...");
+        excluiCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluiClienteActionPerformed(evt);
+            }
+        });
         clientes.add(excluiCliente);
         clientes.add(jSeparator1);
 
         verClientes.setText("Ver Clientes...");
+        verClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verClientesActionPerformed(evt);
+            }
+        });
         clientes.add(verClientes);
         clientes.add(jSeparator3);
 
         sairItemMenu.setText("Sair");
+        sairItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairItemMenuActionPerformed(evt);
+            }
+        });
         clientes.add(sairItemMenu);
 
         jMenuBar1.add(clientes);
@@ -152,6 +165,11 @@ public class AdmFace extends javax.swing.JFrame {
         produtos.add(editaProd);
 
         excluiProd.setText("Excluir Produto...");
+        excluiProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluiProdActionPerformed(evt);
+            }
+        });
         produtos.add(excluiProd);
         produtos.add(jSeparator4);
 
@@ -182,9 +200,28 @@ public class AdmFace extends javax.swing.JFrame {
         jMenuBar1.add(ralatorios);
 
         malha.setText("Malha");
+
+        calculaMalha.setSelected(true);
+        calculaMalha.setText("Calcular preço...");
+        calculaMalha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculaMalhaActionPerformed(evt);
+            }
+        });
+        malha.add(calculaMalha);
+
         jMenuBar1.add(malha);
 
         reserva.setText("Reservas");
+
+        verReserva.setText("Ver Reservas...");
+        verReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verReservaActionPerformed(evt);
+            }
+        });
+        reserva.add(verReserva);
+
         jMenuBar1.add(reserva);
 
         estoque.setText("Estoque");
@@ -204,37 +241,26 @@ public class AdmFace extends javax.swing.JFrame {
                 .addGap(82, 82, 82)
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151)
-                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206)
-                .addComponent(botaoRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(167, 167, 167))
+                .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(botaoReserva)
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel5)
-                .addGap(43, 43, 43)
+                .addGap(150, 150, 150)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoReserva))
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,89 +269,104 @@ public class AdmFace extends javax.swing.JFrame {
     private void cadastraClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraClienteActionPerformed
         FormCliente formCliente = new FormCliente();
         formCliente.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_cadastraClienteActionPerformed
 
     private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
-        
+        Relatorios_tela rt = new Relatorios_tela();
+        rt.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_relatoriosActionPerformed
 
     private void botaoCadastraProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastraProdutosActionPerformed
         FormProduto formProduto = new FormProduto();
         formProduto.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botaoCadastraProdutosActionPerformed
 
     private void botaoCadastraClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastraClientesActionPerformed
-         FormCliente formCliente = new FormCliente();
-         formCliente.setVisible(true);
+        FormCliente formCliente = new FormCliente();
+        formCliente.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botaoCadastraClientesActionPerformed
 
     private void cadastraProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraProdActionPerformed
         FormProduto formProduto = new FormProduto();
         formProduto.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_cadastraProdActionPerformed
 
     private void editaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editaClienteActionPerformed
-       
+        BuscaClientes bc = new BuscaClientes();
+        bc.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_editaClienteActionPerformed
 
     private void editaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editaProdActionPerformed
-        
+        BuscaProdutos bp = new BuscaProdutos();
+        bp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_editaProdActionPerformed
 
     private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
-        
+        BuscaProdutos bp = new BuscaProdutos();
+        bp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_consultaActionPerformed
 
-    private void botaoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRelatorioActionPerformed
-        Relatorios r = new Relatorios();
-        r.setVisible(true);
-        
-    }//GEN-LAST:event_botaoRelatorioActionPerformed
+    private void verClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesActionPerformed
+        BuscaClientes bc = new BuscaClientes();
+        bc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_verClientesActionPerformed
+
+    private void excluiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiClienteActionPerformed
+        BuscaClientes bc = new BuscaClientes();
+        bc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_excluiClienteActionPerformed
+
+    private void sairItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairItemMenuActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_sairItemMenuActionPerformed
+
+    private void excluiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiProdActionPerformed
+        BuscaProdutos bp = new BuscaProdutos();
+        bp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_excluiProdActionPerformed
+
+    private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
+        CalculaMalha cm = new CalculaMalha();
+        cm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_calculaMalhaActionPerformed
+
+    private void botaoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservaActionPerformed
+        Reservas_tela res = new Reservas_tela();
+        res.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoReservaActionPerformed
+
+    private void verReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaActionPerformed
+        Reservas_tela res = new Reservas_tela();
+        res.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_verReservaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdmFace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdmFace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdmFace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdmFace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdmFace().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem atualiza;
     private javax.swing.JButton botaoCadastraClientes;
     private javax.swing.JButton botaoCadastraProdutos;
-    private javax.swing.JButton botaoRelatorio;
+    private javax.swing.JButton botaoReserva;
     private javax.swing.JMenuItem cadastraCliente;
     private javax.swing.JMenuItem cadastraProd;
+    private javax.swing.JCheckBoxMenuItem calculaMalha;
     private javax.swing.JMenu clientes;
     private javax.swing.JMenuItem consulta;
     private javax.swing.JMenuItem editaCliente;
@@ -337,7 +378,6 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -357,5 +397,6 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenu reserva;
     private javax.swing.JMenuItem sairItemMenu;
     private javax.swing.JMenuItem verClientes;
+    private javax.swing.JMenuItem verReserva;
     // End of variables declaration//GEN-END:variables
 }
