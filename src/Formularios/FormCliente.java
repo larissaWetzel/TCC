@@ -1,14 +1,6 @@
 package Formularios;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
 import tcc.telas.AdmFace;
 import tcc.Cliente;
 import tcc.Util.Validacao;
@@ -29,24 +21,23 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nomeCliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        emailCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        telefone = new javax.swing.JTextField();
+        foneCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        celular = new javax.swing.JTextField();
+        celularCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        endereco = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        enderecoCliente = new javax.swing.JTextArea();
         volta = new javax.swing.JButton();
         limpa = new javax.swing.JButton();
         botaoCadastrarCliente = new javax.swing.JButton();
-        senhaCliente = new javax.swing.JPasswordField();
-        confirmaSenhaCliente = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
+        cpfCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/usuario.png"))); // NOI18N
         jLabel1.setText("Cadastro de Clientes: ");
 
         jLabel2.setText("Nome Completo");
@@ -61,43 +52,40 @@ public class FormCliente extends javax.swing.JFrame {
 
         jLabel3.setText("Email");
 
-        email.setToolTipText("Insira o email do cliente");
-        email.addActionListener(new java.awt.event.ActionListener() {
+        emailCliente.setToolTipText("Insira o email do cliente");
+        emailCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                emailClienteActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Telefone");
         jLabel4.setToolTipText("");
 
-        telefone.setToolTipText("Ex.: (47) 9999-9999");
-        telefone.addActionListener(new java.awt.event.ActionListener() {
+        foneCliente.setToolTipText("Ex.: (47) 9999-9999");
+        foneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefoneActionPerformed(evt);
+                foneClienteActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Celular");
 
-        celular.setToolTipText("Ex.: (47) 91234-5678");
-        celular.addActionListener(new java.awt.event.ActionListener() {
+        celularCliente.setToolTipText("Ex.: (47) 91234-5678");
+        celularCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                celularActionPerformed(evt);
+                celularClienteActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Endereço");
 
-        endereco.setColumns(20);
-        endereco.setRows(5);
-        endereco.setToolTipText("Insira o nome da rua e o número");
-        jScrollPane1.setViewportView(endereco);
+        enderecoCliente.setColumns(20);
+        enderecoCliente.setRows(5);
+        enderecoCliente.setToolTipText("Insira o nome da rua e o número");
+        jScrollPane1.setViewportView(enderecoCliente);
 
-        jLabel7.setText("Senha");
-
-        jLabel8.setText("Confirmar senha");
-
+        volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         volta.setText("Voltar");
         volta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,17 +93,25 @@ public class FormCliente extends javax.swing.JFrame {
             }
         });
 
+        limpa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         limpa.setText("Limpar campos");
+        limpa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpaActionPerformed(evt);
+            }
+        });
 
+        botaoCadastrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/confirmar.png"))); // NOI18N
         botaoCadastrarCliente.setText("Cadastrar");
-        botaoCadastrarCliente.setFocusable(false);
-        botaoCadastrarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        botaoCadastrarCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         botaoCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarClienteActionPerformed(evt);
             }
         });
+
+        jLabel9.setText("CPF");
+
+        cpfCliente.setToolTipText("Digite o CPF do cliente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,55 +122,57 @@ public class FormCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaoCadastrarCliente)
+                                .addGap(18, 18, 18)
+                                .addComponent(limpa)
+                                .addGap(31, 31, 31)
+                                .addComponent(volta)))
+                        .addContainerGap(29, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel2))
-                        .addGap(48, 48, 48)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel9))
+                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(senhaCliente)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                             .addComponent(nomeCliente)
-                            .addComponent(email)
-                            .addComponent(telefone)
-                            .addComponent(celular)
-                            .addComponent(confirmaSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(276, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botaoCadastrarCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(limpa)
-                        .addGap(36, 36, 36)
-                        .addComponent(volta)
-                        .addGap(56, 56, 56))))
+                            .addComponent(emailCliente)
+                            .addComponent(foneCliente)
+                            .addComponent(celularCliente)
+                            .addComponent(cpfCliente))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(foneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(celularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(emailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)))
@@ -185,15 +183,7 @@ public class FormCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(confirmaSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volta)
                     .addComponent(limpa)
@@ -211,112 +201,60 @@ public class FormCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeClienteActionPerformed
 
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void emailClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_emailClienteActionPerformed
 
-    private void telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneActionPerformed
+    private void foneClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foneClienteActionPerformed
         
-    }//GEN-LAST:event_telefoneActionPerformed
+    }//GEN-LAST:event_foneClienteActionPerformed
 
-    private void celularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celularActionPerformed
+    private void celularClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celularClienteActionPerformed
         // TODO add your handling code here
-    }//GEN-LAST:event_celularActionPerformed
-
-    private void botaoCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarClienteActionPerformed
-        
-  /*  Cliente cc = new Cliente(nomeCliente.getText(), senhaCliente.getPassword(),confirmaSenhaCliente.getPassword(),email.getText(),endereco.getText(),telefone.getText(),celular.getText());
-        //n sei o porque do try catch.
-        try {        
-            cc.cadastroCliente();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FormCliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FormCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
-    }//GEN-LAST:event_botaoCadastrarClienteActionPerformed
+    }//GEN-LAST:event_celularClienteActionPerformed
 
     private void voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltaActionPerformed
         //volta para o menu AdmFace:
         AdmFace admface = new AdmFace();
         admface.setVisible(true);
-       
-    }//GEN-LAST:event_voltaActionPerformed
-    //começar a usar banco de dados.
-    /* void armazenaNome() throws FileNotFoundException, IOException {
+        this.dispose();
         
-        //**********************************************************
-        //melhor fazer isso a classe cliente!!!!!!!!!!!!!!!
-        //**********************************************************
- 
-        /*if (!nomeCliente.getText().trim().equals("")) {
-           
-            OutputStream ops = new FileOutputStream("Banco de dados do paraguai.txt");
-            OutputStreamWriter osw = new OutputStreamWriter(ops);
-            BufferedWriter bw = new BufferedWriter(osw);
-            bw.write(nomeCliente.getText());
-            bw.close();
-            JOptionPane.showMessageDialog(null, "Cadastrado.");
-        }
+    }//GEN-LAST:event_voltaActionPerformed
 
-    }*/
+    private void limpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_limpaActionPerformed
+
+    private void botaoCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarClienteActionPerformed
+              
+    Cliente cc = new Cliente();
+    cc.cadastroCliente();
+    
+    }//GEN-LAST:event_botaoCadastrarClienteActionPerformed
+    
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormCliente().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastrarCliente;
-    private javax.swing.JTextField celular;
-    private javax.swing.JPasswordField confirmaSenhaCliente;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextArea endereco;
+    private javax.swing.JTextField celularCliente;
+    private javax.swing.JTextField cpfCliente;
+    private javax.swing.JTextField emailCliente;
+    private javax.swing.JTextArea enderecoCliente;
+    private javax.swing.JTextField foneCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limpa;
     private javax.swing.JTextField nomeCliente;
-    private javax.swing.JPasswordField senhaCliente;
-    private javax.swing.JTextField telefone;
     private javax.swing.JButton volta;
     // End of variables declaration//GEN-END:variables
 }

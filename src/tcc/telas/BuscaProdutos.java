@@ -29,6 +29,7 @@ public class BuscaProdutos extends javax.swing.JFrame {
         botaoEditaCliente = new javax.swing.JButton();
         botaoExcluiProd = new javax.swing.JButton();
         volta = new javax.swing.JButton();
+        botaoProcura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +44,7 @@ public class BuscaProdutos extends javax.swing.JFrame {
 
         jLabel1.setText("Insira o código do produto:");
 
+        botaoEditaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         botaoEditaCliente.setText("Alterar Produto");
         botaoEditaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +52,7 @@ public class BuscaProdutos extends javax.swing.JFrame {
             }
         });
 
+        botaoExcluiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         botaoExcluiProd.setText("Excluir Produto");
         botaoExcluiProd.setToolTipText("");
         botaoExcluiProd.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +61,15 @@ public class BuscaProdutos extends javax.swing.JFrame {
             }
         });
 
+        volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         volta.setText("Voltar");
+        volta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltaActionPerformed(evt);
+            }
+        });
+
+        botaoProcura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,39 +77,39 @@ public class BuscaProdutos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoEditaCliente)
                         .addGap(29, 29, 29)
                         .addComponent(botaoExcluiProd)
                         .addGap(29, 29, 29)
-                        .addComponent(volta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(volta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(buscaCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscaCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoProcura)))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(buscaCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(buscaCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoProcura))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoEditaCliente)
                     .addComponent(botaoExcluiProd)
                     .addComponent(volta))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,6 +127,12 @@ public class BuscaProdutos extends javax.swing.JFrame {
     private void botaoExcluiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluiProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoExcluiProdActionPerformed
+
+    private void voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltaActionPerformed
+        AdmFace admface = new AdmFace();
+        admface.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_voltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +172,7 @@ public class BuscaProdutos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditaCliente;
     private javax.swing.JButton botaoExcluiProd;
+    private javax.swing.JButton botaoProcura;
     private javax.swing.JTextField buscaCodigoProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

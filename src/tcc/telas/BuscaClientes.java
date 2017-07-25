@@ -32,6 +32,7 @@ public class BuscaClientes extends javax.swing.JFrame {
         botaoExcluiCliente = new javax.swing.JButton();
         volta = new javax.swing.JButton();
         buscaCodigoCliente = new javax.swing.JTextField();
+        botaoProcura = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -48,6 +49,7 @@ public class BuscaClientes extends javax.swing.JFrame {
 
         jLabel2.setText("Busca de Clientes:");
 
+        botaoEditaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         botaoEditaCliente.setText("Alterar Cliente");
         botaoEditaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,9 +57,16 @@ public class BuscaClientes extends javax.swing.JFrame {
             }
         });
 
+        botaoExcluiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         botaoExcluiCliente.setText("Excluir Cliente");
 
+        volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         volta.setText("Voltar");
+        volta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltaActionPerformed(evt);
+            }
+        });
 
         buscaCodigoCliente.setToolTipText("Insira o código do cliente");
         buscaCodigoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +74,8 @@ public class BuscaClientes extends javax.swing.JFrame {
                 buscaCodigoClienteActionPerformed(evt);
             }
         });
+
+        botaoProcura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,8 +89,8 @@ public class BuscaClientes extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(botaoExcluiCliente)
                         .addGap(29, 29, 29)
-                        .addComponent(volta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(volta, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -87,7 +98,9 @@ public class BuscaClientes extends javax.swing.JFrame {
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(buscaCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(buscaCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoProcura)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -95,16 +108,17 @@ public class BuscaClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(buscaCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(buscaCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoProcura))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoEditaCliente)
                     .addComponent(botaoExcluiCliente)
                     .addComponent(volta))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,6 +132,12 @@ public class BuscaClientes extends javax.swing.JFrame {
         //Inserir o código do cliente, se n existir mostra um aviso que o cliente não foi cadastrado
         //se existir, mostrar dados do cliente e habilitar os botões de editar e excluir.
     }//GEN-LAST:event_buscaCodigoClienteActionPerformed
+
+    private void voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltaActionPerformed
+        AdmFace admface = new AdmFace();
+        admface.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_voltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +177,7 @@ public class BuscaClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditaCliente;
     private javax.swing.JButton botaoExcluiCliente;
+    private javax.swing.JButton botaoProcura;
     private javax.swing.JTextField buscaCodigoCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -107,11 +107,11 @@ public class Principal extends javax.swing.JFrame {
 
         //vai para Util/validação/validaTextos para validar texto e senha
         if (Validacao.validaTextos(nomeUsuario) && Validacao.validaSenhas(senhaUsuario)) {
-            if (nomeUsuario.getText().equals("lari") && String.copyValueOf(senhaUsuario.getPassword()).equals("1234")) {
+            if (nomeUsuario.getText().equals("Vanessa") && String.copyValueOf(senhaUsuario.getPassword()).equals("1234")) {
                 // Se o login estiver válido, mostra a janela AdmFace
                 AdmFace admFace = new AdmFace();
                 admFace.setVisible(true);
-                
+                this.setVisible(false);
             }
         }
 

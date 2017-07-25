@@ -1,6 +1,6 @@
 package tcc.telas;
 
-//Falta redimencionar, precisa da logo.
+//Falta redimencionar, da erro por causa da logo.
 
 import Formularios.FormCliente;
 import Formularios.FormProduto;
@@ -30,6 +30,7 @@ public class AdmFace extends javax.swing.JFrame {
         botaoCadastraClientes = new javax.swing.JButton();
         botaoCadastraProdutos = new javax.swing.JButton();
         botaoReserva = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         clientes = new javax.swing.JMenu();
         cadastraCliente = new javax.swing.JMenuItem();
@@ -50,7 +51,7 @@ public class AdmFace extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         imprime = new javax.swing.JMenuItem();
         malha = new javax.swing.JMenu();
-        calculaMalha = new javax.swing.JCheckBoxMenuItem();
+        calculaMalha = new javax.swing.JMenuItem();
         reserva = new javax.swing.JMenu();
         verReserva = new javax.swing.JMenuItem();
         estoque = new javax.swing.JMenu();
@@ -98,10 +99,13 @@ public class AdmFace extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/logotipo.png"))); // NOI18N
+
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         clientes.setText("Clientes");
 
+        cadastraCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/adicionar.png"))); // NOI18N
         cadastraCliente.setText("Cadastrar Cliente...");
         cadastraCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +114,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         clientes.add(cadastraCliente);
 
+        editaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         editaCliente.setText("Editar Cliente...");
         editaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +123,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         clientes.add(editaCliente);
 
+        excluiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         excluiCliente.setText("Excluir Cliente...");
         excluiCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +142,7 @@ public class AdmFace extends javax.swing.JFrame {
         clientes.add(verClientes);
         clientes.add(jSeparator3);
 
+        sairItemMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/sair.png"))); // NOI18N
         sairItemMenu.setText("Sair");
         sairItemMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +155,7 @@ public class AdmFace extends javax.swing.JFrame {
 
         produtos.setText("Produtos");
 
+        cadastraProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/adicionar.png"))); // NOI18N
         cadastraProd.setText("Cadastrar Produto...");
         cadastraProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +164,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         produtos.add(cadastraProd);
 
+        editaProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         editaProd.setText("Editar Produto...");
         editaProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +173,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         produtos.add(editaProd);
 
+        excluiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         excluiProd.setText("Excluir Produto...");
         excluiProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +183,7 @@ public class AdmFace extends javax.swing.JFrame {
         produtos.add(excluiProd);
         produtos.add(jSeparator4);
 
+        consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/produtos2.png"))); // NOI18N
         consulta.setText("Consultar Produto...");
         consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +196,7 @@ public class AdmFace extends javax.swing.JFrame {
 
         ralatorios.setText("Relatórios");
 
+        relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/relatorios.png"))); // NOI18N
         relatorios.setText("Ver Relatórios...");
         relatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,8 +213,8 @@ public class AdmFace extends javax.swing.JFrame {
 
         malha.setText("Malha");
 
-        calculaMalha.setSelected(true);
-        calculaMalha.setText("Calcular preço...");
+        calculaMalha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/calc.png"))); // NOI18N
+        calculaMalha.setText("Calcular Preço...");
         calculaMalha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculaMalhaActionPerformed(evt);
@@ -214,6 +226,7 @@ public class AdmFace extends javax.swing.JFrame {
 
         reserva.setText("Reservas");
 
+        verReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/reservas.png"))); // NOI18N
         verReserva.setText("Ver Reservas...");
         verReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +239,13 @@ public class AdmFace extends javax.swing.JFrame {
 
         estoque.setText("Estoque");
 
+        atualiza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/produtos.png"))); // NOI18N
         atualiza.setText("Atualizar Vendas...");
+        atualiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizaActionPerformed(evt);
+            }
+        });
         estoque.add(atualiza);
 
         jMenuBar1.add(estoque);
@@ -241,26 +260,31 @@ public class AdmFace extends javax.swing.JFrame {
                 .addGap(82, 82, 82)
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(43, 43, 43)
                 .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(botaoReserva)
-                .addGap(72, 72, 72))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoReserva))
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2))
         );
 
         pack();
@@ -336,12 +360,6 @@ public class AdmFace extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_excluiProdActionPerformed
 
-    private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
-        CalculaMalha cm = new CalculaMalha();
-        cm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_calculaMalhaActionPerformed
-
     private void botaoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservaActionPerformed
         Reservas_tela res = new Reservas_tela();
         res.setVisible(true);
@@ -353,6 +371,18 @@ public class AdmFace extends javax.swing.JFrame {
         res.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_verReservaActionPerformed
+
+    private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
+        CalculaMalha cm = new CalculaMalha();
+        cm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_calculaMalhaActionPerformed
+
+    private void atualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaActionPerformed
+        Estoque_tela et = new Estoque_tela();
+        et.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_atualizaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,7 +396,7 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JButton botaoReserva;
     private javax.swing.JMenuItem cadastraCliente;
     private javax.swing.JMenuItem cadastraProd;
-    private javax.swing.JCheckBoxMenuItem calculaMalha;
+    private javax.swing.JMenuItem calculaMalha;
     private javax.swing.JMenu clientes;
     private javax.swing.JMenuItem consulta;
     private javax.swing.JMenuItem editaCliente;
@@ -377,6 +407,7 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem imprime;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;

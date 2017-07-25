@@ -4,12 +4,12 @@ package tcc.telas;
  *
  * @author Windows
  */
-public class Relatorios extends javax.swing.JFrame {
+public class Relatorios_tela extends javax.swing.JFrame {
 
     /**
      * Creates new form Relatorios
      */
-    public Relatorios() {
+    public Relatorios_tela() {
         initComponents();
     }
 
@@ -51,10 +51,18 @@ public class Relatorios extends javax.swing.JFrame {
 
         botaoAnual.setText("Anual");
 
+        volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         volta.setText("Voltar");
+        volta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltaActionPerformed(evt);
+            }
+        });
 
+        botaoImprime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/imprime.png"))); // NOI18N
         botaoImprime.setText("Imprimir");
 
+        botaoAll_in.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/relatorios.png"))); // NOI18N
         botaoAll_in.setText("Mostrar Tudo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,7 +107,7 @@ public class Relatorios extends javax.swing.JFrame {
                     .addComponent(botaoMensal)
                     .addComponent(botaoSemestral)
                     .addComponent(botaoAnual))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volta)
                     .addComponent(botaoImprime)
@@ -113,6 +121,12 @@ public class Relatorios extends javax.swing.JFrame {
     private void botaoDiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDiarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoDiarioActionPerformed
+
+    private void voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltaActionPerformed
+        AdmFace admface = new AdmFace();
+        admface.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_voltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,20 +145,21 @@ public class Relatorios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Relatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relatorios_tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Relatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relatorios_tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Relatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relatorios_tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Relatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Relatorios_tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Relatorios().setVisible(true);
+                new Relatorios_tela().setVisible(true);
             }
         });
     }

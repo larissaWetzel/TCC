@@ -1,8 +1,15 @@
 package tcc.DTO;
 
 public class ClienteDTO {
-//Deu ruim.
-   /* public  String getNomeCliente() {
+
+    private String nomeCliente;
+    private String cpfCliente;
+    private String emailCliente;
+    private String enderecoCliente;
+    private String foneCliente;
+    private String celularCliente;
+
+    public String getNomeCliente() {
         return nomeCliente;
     }
 
@@ -10,53 +17,44 @@ public class ClienteDTO {
         this.nomeCliente = nomeCliente;
     }
 
-    public String getSenhaCliente() {
-        return senhaCliente;
+    public String getCpfCliente() {
+        return cpfCliente;
     }
 
-    public void setSenhaCliente(String senhaCliente) {
-        this.senhaCliente = senhaCliente;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
-    public String getConfirmaSenhaCliente() {
-        return confirmaSenhaCliente;
+    public String getEmailCliente() {
+        return emailCliente;
     }
 
-    public void setConfirmaSenhaCliente(String confirmaSenhaCliente) {
-        this.confirmaSenhaCliente = confirmaSenhaCliente;
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEnderecoCliente() {
+        return enderecoCliente;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnderecoCliente(String enderecoCliente) {
+        this.enderecoCliente = enderecoCliente;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getFoneCliente() {
+        return foneCliente;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setFoneCliente(String foneCliente) {
+        this.foneCliente = foneCliente;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getCelularCliente() {
+        return celularCliente;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setCelularCliente(String celularCliente) {
+        this.celularCliente = celularCliente;
+
     }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }*/
-   } 
-    
-
+}

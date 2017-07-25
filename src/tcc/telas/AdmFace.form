@@ -62,6 +62,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="cadastraCliente">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/adicionar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Cliente..."/>
               </Properties>
               <Events>
@@ -70,6 +73,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editaCliente">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/alterar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Cliente..."/>
               </Properties>
               <Events>
@@ -78,6 +84,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="excluiCliente">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/delete.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Cliente..."/>
               </Properties>
               <Events>
@@ -98,6 +107,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="sairItemMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/sair.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
               <Events>
@@ -113,6 +125,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="cadastraProd">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/adicionar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Produto..."/>
               </Properties>
               <Events>
@@ -121,6 +136,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editaProd">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/alterar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Produto..."/>
               </Properties>
               <Events>
@@ -129,6 +147,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="excluiProd">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/delete.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Produto..."/>
               </Properties>
               <Events>
@@ -139,6 +160,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="consulta">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/produtos2.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Produto..."/>
               </Properties>
               <Events>
@@ -154,6 +178,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="relatorios">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/relatorios.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ver Relat&#xf3;rios..."/>
               </Properties>
               <Events>
@@ -174,10 +201,12 @@
             <Property name="text" type="java.lang.String" value="Malha"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="calculaMalha">
+            <MenuItem class="javax.swing.JMenuItem" name="calculaMalha">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Calcular pre&#xe7;o..."/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/calc.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Calcular Pre&#xe7;o..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculaMalhaActionPerformed"/>
@@ -192,6 +221,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="verReserva">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/reservas.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ver Reservas..."/>
               </Properties>
               <Events>
@@ -207,8 +239,14 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="atualiza">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/tcc/icons/produtos.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Atualizar Vendas..."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atualizaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -247,29 +285,35 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="botaoCadastraClientes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="botaoCadastraProdutos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="botaoReserva" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="botaoReserva" min="-2" pref="92" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botaoCadastraClientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaoCadastraClientes" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="botaoCadastraProdutos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoReserva" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -309,6 +353,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoReservaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/tcc/icons/logotipo.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
