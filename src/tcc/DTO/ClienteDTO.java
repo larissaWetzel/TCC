@@ -3,7 +3,6 @@ package tcc.DTO;
 public class ClienteDTO {
 
     private String nomeCliente;
-    private String cpfCliente;
     private String emailCliente;
     private String enderecoCliente;
     private String foneCliente;
@@ -15,14 +14,6 @@ public class ClienteDTO {
 
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
-    }
-
-    public String getCpfCliente() {
-        return cpfCliente;
-    }
-
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
     }
 
     public String getEmailCliente() {
@@ -57,4 +48,6 @@ public class ClienteDTO {
         this.celularCliente = celularCliente;
 
     }
+
+   
 }

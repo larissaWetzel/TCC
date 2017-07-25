@@ -1,11 +1,14 @@
 package tcc.telas;
 
 //Pronto, por enquanto.
-import tcc.telas.AdmFace;
-import tcc.Util.Validacao;
+import java.sql.SQLException;
+import tcc.DAO.AdmDAO;
+import tcc.DTO.AdmDTO;
+import tcc.Util.Mensagens;
 
 public class Principal extends javax.swing.JFrame {
 
+    private static AdmDTO admDTO = new AdmDTO();
     public Principal() {
         initComponents();
     }
@@ -16,10 +19,10 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nomeUsuario = new javax.swing.JTextField();
+        nomeAdm = new javax.swing.JTextField();
         logar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-        senhaUsuario = new javax.swing.JPasswordField();
+        senhaAdm = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex - Login");
@@ -28,11 +31,11 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setText("Senha de acesso");
 
-        nomeUsuario.setToolTipText("Insira seu nome de usuario correto");
-        nomeUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        nomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+        nomeAdm.setToolTipText("Insira seu nome de usuario correto");
+        nomeAdm.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        nomeAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeUsuarioActionPerformed(evt);
+                nomeAdmActionPerformed(evt);
             }
         });
 
@@ -54,50 +57,45 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        senhaUsuario.setToolTipText("Insira sua senha de usuario correta");
-        senhaUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaUsuarioActionPerformed(evt);
-            }
-        });
+        senhaAdm.setToolTipText("Insira sua senha de usuario correta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(logar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nomeUsuario)
-                            .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(cancelar)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(jLabel2))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nomeAdm)
+                    .addComponent(senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(logar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelar)
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92)
+                    .addComponent(senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logar)
                     .addComponent(cancelar))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         pack();
@@ -105,74 +103,49 @@ public class Principal extends javax.swing.JFrame {
 
     private void logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarActionPerformed
 
-        //vai para Util/validação/validaTextos para validar texto e senha
-        if (Validacao.validaTextos(nomeUsuario) && Validacao.validaSenhas(senhaUsuario)) {
-            if (nomeUsuario.getText().equals("Vanessa") && String.copyValueOf(senhaUsuario.getPassword()).equals("1234")) {
-                // Se o login estiver válido, mostra a janela AdmFace
-                AdmFace admFace = new AdmFace();
-                admFace.setVisible(true);
-                this.setVisible(false);
+        if (nomeAdm.getText().isEmpty() || senhaAdm.getPassword().length == 0) {
+            Mensagens.Aviso("O nome ou a senha do administrador não foram informados");
+        } else {
+            AdmDAO admDAO = new AdmDAO();
+            try {
+                admDTO = admDAO.autenticaAdm(nomeAdm.getText(), String.valueOf(senhaAdm.getPassword()));
+                if (admDTO == null) {
+                    Mensagens.Erro("Login inválido.");
+                    nomeAdm.requestFocus();
+                } else{
+                    AdmFace admFace = new AdmFace();
+                    admFace.setVisible(true);
+                    admFace.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+            } catch (SQLException ex) {
+                // mensagem de erro
+                Mensagens.Erro("Erro com o Banco de dados");
+                ex.printStackTrace();
+                
+                
             }
         }
 
     }//GEN-LAST:event_logarActionPerformed
 
-    private void nomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioActionPerformed
-        
-    }//GEN-LAST:event_nomeUsuarioActionPerformed
-
-    private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
-        
-    }//GEN-LAST:event_senhaUsuarioActionPerformed
-
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // Limpa campos
-        nomeUsuario.setText("");
-        senhaUsuario.setText("");
+        nomeAdm.setText("");
+        senhaAdm.setText("");
     }//GEN-LAST:event_cancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void nomeAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAdmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeAdmActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton logar;
-    private javax.swing.JTextField nomeUsuario;
-    private javax.swing.JPasswordField senhaUsuario;
+    private javax.swing.JTextField nomeAdm;
+    private javax.swing.JPasswordField senhaAdm;
     // End of variables declaration//GEN-END:variables
 }

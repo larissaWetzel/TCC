@@ -1,18 +1,14 @@
 package tcc.telas;
 
-//Falta redimencionar, da erro por causa da logo.
-
 import Formularios.FormCliente;
 import Formularios.FormProduto;
-
 
 public class AdmFace extends javax.swing.JFrame {
 
     public AdmFace() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -30,7 +26,7 @@ public class AdmFace extends javax.swing.JFrame {
         botaoCadastraClientes = new javax.swing.JButton();
         botaoCadastraProdutos = new javax.swing.JButton();
         botaoReserva = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         clientes = new javax.swing.JMenu();
         cadastraCliente = new javax.swing.JMenuItem();
@@ -99,7 +95,7 @@ public class AdmFace extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/logotipo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/logotipo.png"))); // NOI18N
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -262,28 +258,28 @@ public class AdmFace extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(22, 22, 22))
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoReserva))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoReserva)
+                    .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2))
         );
 
@@ -293,60 +289,70 @@ public class AdmFace extends javax.swing.JFrame {
     private void cadastraClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraClienteActionPerformed
         FormCliente formCliente = new FormCliente();
         formCliente.setVisible(true);
+        formCliente.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_cadastraClienteActionPerformed
 
     private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
         Relatorios_tela rt = new Relatorios_tela();
         rt.setVisible(true);
+        rt.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_relatoriosActionPerformed
 
     private void botaoCadastraProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastraProdutosActionPerformed
         FormProduto formProduto = new FormProduto();
         formProduto.setVisible(true);
+        formProduto.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_botaoCadastraProdutosActionPerformed
 
     private void botaoCadastraClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastraClientesActionPerformed
         FormCliente formCliente = new FormCliente();
         formCliente.setVisible(true);
+        formCliente.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_botaoCadastraClientesActionPerformed
 
     private void cadastraProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraProdActionPerformed
         FormProduto formProduto = new FormProduto();
         formProduto.setVisible(true);
+        formProduto.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_cadastraProdActionPerformed
 
     private void editaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editaClienteActionPerformed
         BuscaClientes bc = new BuscaClientes();
         bc.setVisible(true);
+        bc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_editaClienteActionPerformed
 
     private void editaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editaProdActionPerformed
-        BuscaProdutos bp = new BuscaProdutos();
-        bp.setVisible(true);
-        this.setVisible(false);
+        EditaProdutos ep = new EditaProdutos();
+        ep.setVisible(true);
+        this.dispose();
+        ep.setLocationRelativeTo(null);
     }//GEN-LAST:event_editaProdActionPerformed
 
     private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
         BuscaProdutos bp = new BuscaProdutos();
         bp.setVisible(true);
+        bp.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_consultaActionPerformed
 
     private void verClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesActionPerformed
         BuscaClientes bc = new BuscaClientes();
         bc.setVisible(true);
+        bc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_verClientesActionPerformed
 
     private void excluiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiClienteActionPerformed
         BuscaClientes bc = new BuscaClientes();
         bc.setVisible(true);
+        bc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_excluiClienteActionPerformed
 
@@ -357,37 +363,38 @@ public class AdmFace extends javax.swing.JFrame {
     private void excluiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiProdActionPerformed
         BuscaProdutos bp = new BuscaProdutos();
         bp.setVisible(true);
+        bp.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_excluiProdActionPerformed
 
     private void botaoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservaActionPerformed
         Reservas_tela res = new Reservas_tela();
         res.setVisible(true);
+        res.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_botaoReservaActionPerformed
 
     private void verReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaActionPerformed
         Reservas_tela res = new Reservas_tela();
         res.setVisible(true);
+        res.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_verReservaActionPerformed
 
     private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
         CalculaMalha cm = new CalculaMalha();
         cm.setVisible(true);
+        cm.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_calculaMalhaActionPerformed
 
     private void atualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaActionPerformed
         Estoque_tela et = new Estoque_tela();
         et.setVisible(true);
+        et.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_atualizaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem atualiza;
@@ -406,8 +413,8 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem excluiProd;
     private javax.swing.JMenuItem imprime;
     private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;

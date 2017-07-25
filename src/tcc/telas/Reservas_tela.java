@@ -47,6 +47,7 @@ public class Reservas_tela extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vanetex - Reservas");
 
         jLabel1.setText("Reservas");
 
@@ -178,6 +179,7 @@ public class Reservas_tela extends javax.swing.JFrame {
     private void voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltaActionPerformed
         AdmFace admface = new AdmFace();
         admface.setVisible(true);
+        admface.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_voltaActionPerformed
 
