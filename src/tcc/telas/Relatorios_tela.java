@@ -24,13 +24,11 @@ public class Relatorios_tela extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         botaoDiario = new javax.swing.JButton();
-        botaoSemanal = new javax.swing.JButton();
         botaoMensal = new javax.swing.JButton();
-        botaoSemestral = new javax.swing.JButton();
-        botaoAnual = new javax.swing.JButton();
         volta = new javax.swing.JButton();
         botaoImprime = new javax.swing.JButton();
-        botaoAll_in = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex - Relatórios");
@@ -44,13 +42,7 @@ public class Relatorios_tela extends javax.swing.JFrame {
             }
         });
 
-        botaoSemanal.setText("Semanal");
-
         botaoMensal.setText("Mensal");
-
-        botaoSemestral.setText("Semestral");
-
-        botaoAnual.setText("Anual");
 
         volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         volta.setText("Voltar");
@@ -63,56 +55,59 @@ public class Relatorios_tela extends javax.swing.JFrame {
         botaoImprime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/imprime.png"))); // NOI18N
         botaoImprime.setText("Imprimir");
 
-        botaoAll_in.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/relatorios.png"))); // NOI18N
-        botaoAll_in.setText("Mostrar Tudo");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(botaoDiario)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(botaoSemanal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(botaoMensal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(botaoSemestral)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(botaoAnual))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoAll_in)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(botaoImprime)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(volta)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoImprime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(volta)
                 .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(botaoDiario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoMensal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(jLabel1)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoDiario)
-                    .addComponent(botaoSemanal)
-                    .addComponent(botaoMensal)
-                    .addComponent(botaoSemestral)
-                    .addComponent(botaoAnual))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                    .addComponent(botaoMensal))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volta)
-                    .addComponent(botaoImprime)
-                    .addComponent(botaoAll_in))
+                    .addComponent(botaoImprime))
                 .addGap(30, 30, 30))
         );
 
@@ -167,14 +162,12 @@ public class Relatorios_tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAll_in;
-    private javax.swing.JButton botaoAnual;
     private javax.swing.JButton botaoDiario;
     private javax.swing.JButton botaoImprime;
     private javax.swing.JButton botaoMensal;
-    private javax.swing.JButton botaoSemanal;
-    private javax.swing.JButton botaoSemestral;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton volta;
     // End of variables declaration//GEN-END:variables
 }

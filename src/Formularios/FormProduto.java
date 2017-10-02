@@ -39,6 +39,7 @@ public class FormProduto extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Produtos");
 
         jLabel1.setFont(new java.awt.Font("Segoe Script", 0, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/produtos.png"))); // NOI18N
@@ -97,6 +98,11 @@ public class FormProduto extends javax.swing.JFrame {
 
         buttonGroup1.add(botaoM);
         botaoM.setText("Médio");
+        botaoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoMActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(botaoG);
         botaoG.setText("Grande");
@@ -210,7 +216,7 @@ public class FormProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLimparCamposActionPerformed
 
     private void botaoCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdutoActionPerformed
-        String preco = precoProd.getText().trim();
+         String preco = precoProd.getText().trim();
         String qnt = qntProd.getText().trim();
         p = Float.parseFloat(preco);
         q = Integer.parseInt(qnt);
@@ -230,10 +236,13 @@ public class FormProduto extends javax.swing.JFrame {
             try {
                 pDAO.cadastraProdutos(p, q, n, t);
                 Mensagens.Info("Produto cadastrado com sucesso");
-                AdmFace a = new AdmFace();
-                a.setVisible(true);
-                this.dispose();
-                
+                nomeProd.setText("");
+                precoProd.setText("");
+                qntProd.setText("");
+                botaoG.setSelected(false);
+                botaoM.setSelected(false);
+                botaoP.setSelected(false);
+                nomeProd.requestFocus();
             } catch (SQLException ex) {
                 Mensagens.Erro("Erro com o banco de dados");
                 ex.printStackTrace();
@@ -245,6 +254,10 @@ public class FormProduto extends javax.swing.JFrame {
     private void botaoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoPActionPerformed
+
+    private void botaoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoMActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

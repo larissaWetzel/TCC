@@ -22,6 +22,7 @@ public class AdmFace extends javax.swing.JFrame {
         menu2 = new java.awt.Menu();
         jLabel4 = new javax.swing.JLabel();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         botaoCadastraClientes = new javax.swing.JButton();
         botaoCadastraProdutos = new javax.swing.JButton();
@@ -49,9 +50,10 @@ public class AdmFace extends javax.swing.JFrame {
         malha = new javax.swing.JMenu();
         calculaMalha = new javax.swing.JMenuItem();
         reserva = new javax.swing.JMenu();
-        verReserva = new javax.swing.JMenuItem();
-        estoque = new javax.swing.JMenu();
-        atualiza = new javax.swing.JMenuItem();
+        verReservas = new javax.swing.JMenuItem();
+        fazerReserva = new javax.swing.JMenuItem();
+        vendas = new javax.swing.JMenu();
+        baixaEst = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -67,11 +69,13 @@ public class AdmFace extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel4");
 
+        jMenuItem3.setText("jMenuItem3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex");
         setBackground(new java.awt.Color(255, 153, 153));
 
-        botaoCadastraClientes.setText("Casdatrar Cliente");
+        botaoCadastraClientes.setText("Cadastrar Cliente");
         botaoCadastraClientes.setPreferredSize(new java.awt.Dimension(127, 23));
         botaoCadastraClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +105,7 @@ public class AdmFace extends javax.swing.JFrame {
 
         clientes.setText("Clientes");
 
+        cadastraCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         cadastraCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/adicionar.png"))); // NOI18N
         cadastraCliente.setText("Cadastrar Cliente...");
         cadastraCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +115,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         clientes.add(cadastraCliente);
 
+        editaCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         editaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         editaCliente.setText("Editar Cliente...");
         editaCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +125,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         clientes.add(editaCliente);
 
+        excluiCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         excluiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         excluiCliente.setText("Excluir Cliente...");
         excluiCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +136,7 @@ public class AdmFace extends javax.swing.JFrame {
         clientes.add(excluiCliente);
         clientes.add(jSeparator1);
 
+        verClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         verClientes.setText("Ver Clientes...");
         verClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +146,7 @@ public class AdmFace extends javax.swing.JFrame {
         clientes.add(verClientes);
         clientes.add(jSeparator3);
 
+        sairItemMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         sairItemMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/sair.png"))); // NOI18N
         sairItemMenu.setText("Sair");
         sairItemMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +160,7 @@ public class AdmFace extends javax.swing.JFrame {
 
         produtos.setText("Produtos");
 
+        cadastraProd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         cadastraProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/adicionar.png"))); // NOI18N
         cadastraProd.setText("Cadastrar Produto...");
         cadastraProd.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +170,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         produtos.add(cadastraProd);
 
+        editaProd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         editaProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         editaProd.setText("Editar Produto...");
         editaProd.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +180,7 @@ public class AdmFace extends javax.swing.JFrame {
         });
         produtos.add(editaProd);
 
+        excluiProd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         excluiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/delete.png"))); // NOI18N
         excluiProd.setText("Excluir Produto...");
         excluiProd.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +191,7 @@ public class AdmFace extends javax.swing.JFrame {
         produtos.add(excluiProd);
         produtos.add(jSeparator4);
 
+        consulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/produtos2.png"))); // NOI18N
         consulta.setText("Consultar Produto...");
         consulta.addActionListener(new java.awt.event.ActionListener() {
@@ -222,29 +235,38 @@ public class AdmFace extends javax.swing.JFrame {
 
         reserva.setText("Reservas");
 
-        verReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/reservas.png"))); // NOI18N
-        verReserva.setText("Ver Reservas...");
-        verReserva.addActionListener(new java.awt.event.ActionListener() {
+        verReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
+        verReservas.setText("Ver Reservas...");
+        verReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verReservaActionPerformed(evt);
+                verReservasActionPerformed(evt);
             }
         });
-        reserva.add(verReserva);
+        reserva.add(verReservas);
+
+        fazerReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/reservas.png"))); // NOI18N
+        fazerReserva.setText("Fazer Reserva...");
+        fazerReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fazerReservaActionPerformed(evt);
+            }
+        });
+        reserva.add(fazerReserva);
 
         jMenuBar1.add(reserva);
 
-        estoque.setText("Estoque");
+        vendas.setText("Vendas");
+        vendas.setToolTipText("");
 
-        atualiza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/produtos.png"))); // NOI18N
-        atualiza.setText("Atualizar Vendas...");
-        atualiza.addActionListener(new java.awt.event.ActionListener() {
+        baixaEst.setText("Baixa de estoque...");
+        baixaEst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizaActionPerformed(evt);
+                baixaEstActionPerformed(evt);
             }
         });
-        estoque.add(atualiza);
+        vendas.add(baixaEst);
 
-        jMenuBar1.add(estoque);
+        jMenuBar1.add(vendas);
 
         setJMenuBar(jMenuBar1);
 
@@ -257,29 +279,29 @@ public class AdmFace extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoReserva)
+                    .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel2))
         );
 
@@ -322,7 +344,7 @@ public class AdmFace extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastraProdActionPerformed
 
     private void editaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editaClienteActionPerformed
-        BuscaClientes bc = new BuscaClientes();
+        EditaClientes bc = new EditaClientes();
         bc.setVisible(true);
         bc.setLocationRelativeTo(null);
         this.setVisible(false);
@@ -336,23 +358,23 @@ public class AdmFace extends javax.swing.JFrame {
     }//GEN-LAST:event_editaProdActionPerformed
 
     private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
-        BuscaProdutos bp = new BuscaProdutos();
+      VerProdutos bp = new VerProdutos();
         bp.setVisible(true);
         bp.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_consultaActionPerformed
 
     private void verClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesActionPerformed
-        BuscaClientes bc = new BuscaClientes();
-        bc.setVisible(true);
-        bc.setLocationRelativeTo(null);
+        VerCliente vc = new VerCliente(this, true);
+        vc.setVisible(true);
+        vc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_verClientesActionPerformed
 
     private void excluiClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiClienteActionPerformed
-        BuscaClientes bc = new BuscaClientes();
-        bc.setVisible(true);
-        bc.setLocationRelativeTo(null);
+        RemoveCliente rc = new RemoveCliente();
+        rc.setVisible(true);
+        rc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_excluiClienteActionPerformed
 
@@ -361,9 +383,9 @@ public class AdmFace extends javax.swing.JFrame {
     }//GEN-LAST:event_sairItemMenuActionPerformed
 
     private void excluiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluiProdActionPerformed
-        BuscaProdutos bp = new BuscaProdutos();
-        bp.setVisible(true);
-        bp.setLocationRelativeTo(null);
+       RemoveProduto rp = new RemoveProduto();
+        rp.setVisible(true);
+        rp.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_excluiProdActionPerformed
 
@@ -374,12 +396,12 @@ public class AdmFace extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_botaoReservaActionPerformed
 
-    private void verReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaActionPerformed
+    private void fazerReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazerReservaActionPerformed
         Reservas_tela res = new Reservas_tela();
         res.setVisible(true);
         res.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_verReservaActionPerformed
+    }//GEN-LAST:event_fazerReservaActionPerformed
 
     private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
         CalculaMalha cm = new CalculaMalha();
@@ -388,16 +410,23 @@ public class AdmFace extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_calculaMalhaActionPerformed
 
-    private void atualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaActionPerformed
-        Estoque_tela et = new Estoque_tela();
-        et.setVisible(true);
-        et.setLocationRelativeTo(null);
+    private void verReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservasActionPerformed
+        VerReservas vr = new VerReservas();
+        vr.setVisible(true);
+        vr.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_atualizaActionPerformed
+    }//GEN-LAST:event_verReservasActionPerformed
+
+    private void baixaEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baixaEstActionPerformed
+        Baixa b = new Baixa();
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_baixaEstActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem atualiza;
+    private javax.swing.JMenuItem baixaEst;
     private javax.swing.JButton botaoCadastraClientes;
     private javax.swing.JButton botaoCadastraProdutos;
     private javax.swing.JButton botaoReserva;
@@ -408,9 +437,9 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem consulta;
     private javax.swing.JMenuItem editaCliente;
     private javax.swing.JMenuItem editaProd;
-    private javax.swing.JMenu estoque;
     private javax.swing.JMenuItem excluiCliente;
     private javax.swing.JMenuItem excluiProd;
+    private javax.swing.JMenuItem fazerReserva;
     private javax.swing.JMenuItem imprime;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
@@ -420,6 +449,7 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -434,7 +464,8 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem relatorios;
     private javax.swing.JMenu reserva;
     private javax.swing.JMenuItem sairItemMenu;
+    private javax.swing.JMenu vendas;
     private javax.swing.JMenuItem verClientes;
-    private javax.swing.JMenuItem verReserva;
+    private javax.swing.JMenuItem verReservas;
     // End of variables declaration//GEN-END:variables
 }

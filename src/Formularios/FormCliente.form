@@ -156,7 +156,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="foneCliente">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Digite o telefone do cliente"/>
+        <Property name="toolTipText" type="java.lang.String" value="Digite o telefone do cliente. Modelo:(12)12345678 "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="foneClienteActionPerformed"/>
@@ -169,7 +169,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="celularCliente">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Digite o celular do cliente"/>
+        <Property name="toolTipText" type="java.lang.String" value="Digite o celular do cliente. Modelo(12)123456789"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="celularClienteActionPerformed"/>

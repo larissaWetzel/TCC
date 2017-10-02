@@ -1,5 +1,7 @@
 package tcc.telas;
 
+import tcc.Util.Mensagens;
+
 public class CalculaMalha extends javax.swing.JFrame {
 
     public CalculaMalha() {
@@ -9,7 +11,7 @@ public class CalculaMalha extends javax.swing.JFrame {
     //Moletom = 20 reais m²
     //Suedini = 10 reais m²
     //Meia Malha= 20 reais m²
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -19,15 +21,24 @@ public class CalculaMalha extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         volta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        boxTecidos = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        metro = new javax.swing.JTextField();
         botaoCalcular = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        total = new javax.swing.JTextField();
+        ribana = new javax.swing.JRadioButton();
+        moletom = new javax.swing.JRadioButton();
+        suedini = new javax.swing.JRadioButton();
+        meiaMalha = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex - Calculadora");
 
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         jLabel1.setText("Calculadora do preço da malha");
 
         volta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
@@ -40,71 +51,138 @@ public class CalculaMalha extends javax.swing.JFrame {
 
         jLabel2.setText("Escolha o tipo de tecido:");
 
-        boxTecidos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ribana", "Moletom", "Suedini", "Meia Malha" }));
-        boxTecidos.setToolTipText("Escolha um");
-        boxTecidos.setOpaque(false);
-        boxTecidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxTecidosActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Informe a quantidade em m²:");
 
-        jTextField1.setToolTipText("Digite a quantidade em metros quadrados do tecido para realizar a operação");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        metro.setToolTipText("Digite a quantidade em metros quadrados do tecido para realizar a operação");
+        metro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                metroActionPerformed(evt);
             }
         });
 
         botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/calc.png"))); // NOI18N
         botaoCalcular.setText("Calcular Preço");
+        botaoCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCalcularActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Total:");
+
+        total.setEditable(false);
+
+        buttonGroup1.add(ribana);
+        ribana.setText("Ribana");
+
+        buttonGroup1.add(moletom);
+        moletom.setText("Moletom");
+
+        buttonGroup1.add(suedini);
+        suedini.setText("Suedini");
+
+        buttonGroup1.add(meiaMalha);
+        meiaMalha.setText("Meia Malha");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel5.setText("R$ 10,00 x m²");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel6.setText("R$ 20,00 x m²");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel7.setText("R$ 10,00 x m²");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel8.setText("R$ 20,00 x m²");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(volta)
-                    .addComponent(botaoCalcular)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(boxTecidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(volta))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(23, 23, 23)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel7)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addGap(0, 30, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(botaoCalcular))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(metro, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(ribana)
+                                .addGap(26, 26, 26)
+                                .addComponent(moletom)
+                                .addGap(18, 18, 18)
+                                .addComponent(suedini)
+                                .addGap(18, 18, 18)
+                                .addComponent(meiaMalha)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(boxTecidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(ribana)
+                    .addComponent(moletom)
+                    .addComponent(suedini)
+                    .addComponent(meiaMalha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(metro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(botaoCalcular)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(31, 31, 31)
                 .addComponent(volta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -117,59 +195,68 @@ public class CalculaMalha extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_voltaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void metroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_metroActionPerformed
 
-    private void boxTecidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTecidosActionPerformed
-        
-    }//GEN-LAST:event_boxTecidosActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
+        int p;
+        if (buttonGroup1.isSelected(null)) {
+            Mensagens.Aviso("Selecione um tipo de malha para calcular.");
+        } else {
+            if (ribana.isSelected() || moletom.isSelected() || suedini.isSelected() || meiaMalha.isSelected()) {
+                if (metro.getText().isEmpty()) {
+                    Mensagens.Aviso(metro.getToolTipText());
+                } else {
+                    if (ribana.isSelected()) {
+                        p = Integer.parseInt(metro.getText());
+                        p = p * 10;
+                        total.setText("" + p);
+                        metro.setText("");
+                    }
+                    if (moletom.isSelected()) {
+                        p = Integer.parseInt(metro.getText());
+                        p = p * 20;
+                        total.setText("" + p);
+                        metro.setText("");
+                    }
+                    if (suedini.isSelected()) {
+                        p = Integer.parseInt(metro.getText());
+                        p = p * 10;
+                        total.setText("" + p);
+                        metro.setText("");
+                    }
+                    if (meiaMalha.isSelected()) {
+                        p = Integer.parseInt(metro.getText());
+                        p = p * 20;
+                        total.setText("" + p);
+                        metro.setText("");
+                    }
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CalculaMalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CalculaMalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CalculaMalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CalculaMalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CalculaMalha().setVisible(true);
-            }
-        });
-    }
+        }
+    }//GEN-LAST:event_botaoCalcularActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCalcular;
-    private javax.swing.JComboBox boxTecidos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JRadioButton meiaMalha;
+    private javax.swing.JTextField metro;
+    private javax.swing.JRadioButton moletom;
+    private javax.swing.JRadioButton ribana;
+    private javax.swing.JRadioButton suedini;
+    private javax.swing.JTextField total;
     private javax.swing.JButton volta;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,41 +2,48 @@ package tcc.DTO;
 
 public class ProdutoDTO {
 
-    public class produtoDTO {
+    private String nomeProd, tamProd;
+    private float precoProd;
+    private int qntProd, codProd;
 
-        private String nomeProd, precoProd, qntProd, tamProd;
-
-        public String getNomeProd() {
-            return nomeProd;
-        }
-
-        public String getTamProd() {
-            return tamProd;
-        }
-
-        public void setNomeProd(String nomeProd) {
-            this.nomeProd = nomeProd;
-        }
-
-        public String getPrecoProd() {
-            return precoProd;
-        }
-
-        public void setPrecoProd(String precoProd) {
-            this.precoProd = precoProd;
-        }
-
-        public String getQntProd() {
-            return qntProd;
-        }
-
-        public void setQntProd(String qntProd) {
-            this.qntProd = qntProd;
-        }
-
-        public void setTamProd(String tamProd) {
-            this.tamProd = tamProd;
-        }
-
+    public int getCodProd() {
+        return codProd;
     }
+
+    public void setCodProd(int codProd) {
+        this.codProd = codProd;
+    }
+
+    public String getNomeProd() {
+        return nomeProd;
+    }
+
+    public String getTamProd() {
+        return tamProd;
+    }
+
+    public void setNomeProd(String nomeProd) {
+        this.nomeProd = nomeProd;
+    }
+
+    public float getPrecoProd() {
+        return precoProd;
+    }
+
+    public void setPrecoProd(float precoProd) {
+        this.precoProd = precoProd;
+    }
+
+    public int getQntProd() {
+        return qntProd;
+    }
+
+    public void setQntProd(int qntProd) {
+        this.qntProd = qntProd;
+    }
+
+    public void setTamProd(String tamProd) {
+        this.tamProd = tamProd;
+    }
+
 }

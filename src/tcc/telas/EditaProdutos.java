@@ -2,20 +2,30 @@ package tcc.telas;
 
 import java.sql.SQLException;
 import tcc.DAO.ProdutoDAO;
+import tcc.DTO.ProdutoDTO;
 import tcc.Util.Mensagens;
 
 public class EditaProdutos extends javax.swing.JFrame {
 
+    private static ProdutoDTO produtoDTO;
+    private String novoNome;
+    private int novoQnt, cod;
+    private float novoPreco;
+
+    ProdutoDAO pDAO = new ProdutoDAO();
+
     public EditaProdutos() {
         initComponents();
         PanelAlteraProd.setVisible(false);
-        botaoCadastrarProduto.setSelected(false);
+        botaoAlteraProduto.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         buscaCodigoProd = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -32,11 +42,14 @@ public class EditaProdutos extends javax.swing.JFrame {
         novoNomeProd = new javax.swing.JTextField();
         novoQntProd = new javax.swing.JTextField();
         novoPrecoProd = new javax.swing.JTextField();
-        botaoCadastrarProduto = new javax.swing.JButton();
+        botaoAlteraProduto = new javax.swing.JButton();
         botaoVolta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vanetex - Alteração");
 
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/alterar.png"))); // NOI18N
         jLabel1.setText("Alteração de produtos");
 
         buscaCodigoProd.setToolTipText("Insira o código do produto");
@@ -140,16 +153,21 @@ public class EditaProdutos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        botaoCadastrarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/confirmar.png"))); // NOI18N
-        botaoCadastrarProduto.setText("Cadastrar");
-        botaoCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+        botaoAlteraProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/confirmar.png"))); // NOI18N
+        botaoAlteraProduto.setText("Alterar");
+        botaoAlteraProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarProdutoActionPerformed(evt);
+                botaoAlteraProdutoActionPerformed(evt);
             }
         });
 
         botaoVolta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/voltar.png"))); // NOI18N
         botaoVolta.setText("Voltar");
+        botaoVolta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,9 +175,6 @@ public class EditaProdutos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2)
@@ -172,17 +187,21 @@ public class EditaProdutos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelAlteraProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(botaoCadastrarProduto)
+                                .addComponent(botaoAlteraProduto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(botaoVolta)))))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoProcura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,66 +209,115 @@ public class EditaProdutos extends javax.swing.JFrame {
                         .addComponent(buscaCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(PanelAlteraProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastrarProduto)
+                    .addComponent(botaoAlteraProduto)
                     .addComponent(botaoVolta))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaCodigoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaCodigoProdActionPerformed
-        //Inserir o código do produto, se n existir mostra um aviso que o produto não foi cadastrado
-        //se existir, mostrar dados do produto e habilitar os botões de editar e excluir.
+
     }//GEN-LAST:event_buscaCodigoProdActionPerformed
 
     private void botaoProcuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoProcuraActionPerformed
 
         String cod = buscaCodigoProd.getText();
-        ProdutoDAO pDAO = new ProdutoDAO();
         if (cod.isEmpty()) {
             Mensagens.Aviso("Informe o código para buscar.");
             buscaCodigoProd.requestFocus();
-            //tem que ver se o código existe no bd.
-
         } else {
-            PanelAlteraProd.setVisible(true);
-            botaoCadastrarProduto.setSelected(true);
-
             int c = Integer.parseInt(cod);
-            boolean aux = (c != 0);
             try {
-                pDAO.verificaCod(aux);
-
-                if (true) {
-                    System.out.println("oi");
+                if (pDAO.verificaCod(c)) {
+                    botaoProcura.setEnabled(false);
+                    PanelAlteraProd.setVisible(true);
+                    botaoAlteraProduto.setEnabled(true);
+                    novoNomeProd.setEditable(false);
+                    novoQntProd.setEditable(false);
+                    novoPrecoProd.setEditable(false);
                 } else {
-                    System.out.println("tchau");
+                    Mensagens.Aviso("O código informado não existe ou não esta cadastrado no banco de dados");
+                    buscaCodigoProd.requestFocus();
                 }
+                produtoDTO = pDAO.pegaBD(c);
+                novoNomeProd.setText(produtoDTO.getNomeProd());
+                novoQntProd.setText("" + produtoDTO.getQntProd());
+                novoPrecoProd.setText("" + produtoDTO.getPrecoProd());
 
             } catch (SQLException ex) {
                 Mensagens.Erro("Erro com o banco de dados");
                 ex.printStackTrace();
             }
-            /*try {
-             pDAO.alteraProdutos(c);
-               
-             } catch (SQLException ex) {
-             Mensagens.Erro("Erro com o banco de dados");
-             ex.printStackTrace();
-             }*/
         }
     }//GEN-LAST:event_botaoProcuraActionPerformed
 
-    private void botaoCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdutoActionPerformed
+    private void botaoAlteraProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraProdutoActionPerformed
+        if (buscaCodigoProd.isEnabled()) {
+            buscaCodigoProd.setEnabled(false);
+            if (boxNome.isSelected()) {
+                if (novoNomeProd.getText().isEmpty()) {
+                    Mensagens.Aviso("Informe o novo nome para alterar");
+                    return;
+                } else {
+                    novoNome = novoNomeProd.getText();
+                }
+
+            } else {
+                novoNome = produtoDTO.getNomeProd();
+            }
+
+            if (boxQnt.isSelected()) {
+                if (novoQntProd.getText().isEmpty()) {
+                    Mensagens.Aviso("Informe a nova quantidade para alterar");
+                    return;
+                } else {
+                    novoQnt = Integer.parseInt(novoQntProd.getText());
+                }
+            } else {
+                novoQnt = produtoDTO.getQntProd();
+            }
+
+            if (boxPreco.isSelected()) {
+                if (novoPrecoProd.getText().isEmpty()) {
+                    Mensagens.Aviso("Informe o novo preço para alterar");
+                    return;
+                } else {
+                    novoPreco = Float.valueOf(novoPrecoProd.getText());
+                }
+            } else {
+                novoPreco = produtoDTO.getPrecoProd();
+            }
+
+            cod = Integer.parseInt(buscaCodigoProd.getText());
+            try {
+                pDAO.alteraProd(novoNome, novoQnt, novoPreco, cod);
+                Mensagens.Info("Dados atualizados com sucesso.");
+                buscaCodigoProd.setEditable(true);
+                buscaCodigoProd.setText("");
+                botaoProcura.setEnabled(true);
+                novoQntProd.setText("");
+                novoNomeProd.setText("");
+                novoPrecoProd.setEditable(false);
+                novoNomeProd.setEditable(false);
+                novoPrecoProd.setText("");
+                boxNome.setSelected(false);
+                boxQnt.setSelected(false);
+                boxPreco.setSelected(false);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                Mensagens.Erro("Erro no Banco de Dados");
+            }
+        }
 
 
-    }//GEN-LAST:event_botaoCadastrarProdutoActionPerformed
+    }//GEN-LAST:event_botaoAlteraProdutoActionPerformed
 
     private void boxNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNomeActionPerformed
-         if (boxNome.isSelected()) {
+        if (boxNome.isSelected()) {
             novoNomeProd.setEditable(true);
         } else {
             novoNomeProd.setEditable(false);
@@ -257,7 +325,7 @@ public class EditaProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_boxNomeActionPerformed
 
     private void boxQntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxQntActionPerformed
-         if (boxNome.isSelected()) {
+        if (boxQnt.isSelected()) {
             novoQntProd.setEditable(true);
         } else {
             novoQntProd.setEditable(false);
@@ -265,22 +333,31 @@ public class EditaProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_boxQntActionPerformed
 
     private void boxPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxPrecoActionPerformed
-         if (boxNome.isSelected()) {
+        if (boxPreco.isSelected()) {
             novoPrecoProd.setEditable(true);
         } else {
             novoPrecoProd.setEditable(false);
         }
     }//GEN-LAST:event_boxPrecoActionPerformed
 
+    private void botaoVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltaActionPerformed
+        AdmFace admface = new AdmFace();
+        admface.setVisible(true);
+        admface.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_botaoVoltaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelAlteraProd;
-    private javax.swing.JButton botaoCadastrarProduto;
+    private javax.swing.JButton botaoAlteraProduto;
     private javax.swing.JButton botaoProcura;
     private javax.swing.JButton botaoVolta;
     private javax.swing.JCheckBox boxNome;
     private javax.swing.JCheckBox boxPreco;
     private javax.swing.JCheckBox boxQnt;
     private javax.swing.JTextField buscaCodigoProd;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

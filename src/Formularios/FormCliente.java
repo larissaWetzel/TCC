@@ -67,7 +67,7 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel4.setText("Telefone *");
         jLabel4.setToolTipText("");
 
-        foneCliente.setToolTipText("Digite o telefone do cliente");
+        foneCliente.setToolTipText("Digite o telefone do cliente. Modelo:(12)12345678 ");
         foneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foneClienteActionPerformed(evt);
@@ -76,7 +76,7 @@ public class FormCliente extends javax.swing.JFrame {
 
         jLabel5.setText("Celular *");
 
-        celularCliente.setToolTipText("Digite o celular do cliente");
+        celularCliente.setToolTipText("Digite o celular do cliente. Modelo(12)123456789");
         celularCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celularClienteActionPerformed(evt);
@@ -240,22 +240,32 @@ public class FormCliente extends javax.swing.JFrame {
         if (n.isEmpty() || f.isEmpty() || c.isEmpty() || email.isEmpty() || e.isEmpty()) {
             Mensagens.Aviso("Alguns dados não foram preenchidos corretamente");
         } else {
-            /*if (cpf.length() == 11) {
-             int i = 0;
-             for (i = 0; i<cpf.length(); i++) {
-             if (!Character.isDigit(cpf.charAt(i)))
-             break;*/
-            ClienteDAO cDAO = new ClienteDAO();
-            try {
-                cDAO.cadastraClientes(n, f, c, email, e);
-                Mensagens.Info("Cliente cadastrado com sucesso");
-                AdmFace a = new AdmFace();
-                a.setVisible(true);
-                this.dispose();
-            } catch (SQLException ex) {
-                Mensagens.Erro("Erro com o banco de dados");
-                ex.printStackTrace();
+            if (f.length() != 12) {
+                Mensagens.Aviso(foneCliente.getToolTipText());
+                foneCliente.requestFocus();
+            } else {
+                if (c.length() != 13) {
+                    Mensagens.Aviso(celularCliente.getToolTipText());
+                    celularCliente.requestFocus();
+                } else {
+                    ClienteDAO cDAO = new ClienteDAO();
+                    try {
+                        cDAO.cadastraClientes(n, f, c, email, e);
+                        Mensagens.Info("Cliente cadastrado com sucesso");
+                        nomeCliente.setText("");
+                        foneCliente.setText("");
+                        celularCliente.setText("");
+                        emailCliente.setText("");
+                        enderecoCliente.setText("");
+                        nomeCliente.requestFocus();
+                    } catch (SQLException ex) {
+                        Mensagens.Erro("Erro com o banco de dados");
+                        ex.printStackTrace();
+                    }
+
+                }
             }
+
         }
 
     }//GEN-LAST:event_botaoCadastrarClienteActionPerformed

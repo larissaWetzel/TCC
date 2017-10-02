@@ -3,9 +3,11 @@ package tcc.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import tcc.DTO.ProdutoDTO;
 
 public class ProdutoDAO {
 
@@ -37,41 +39,88 @@ public class ProdutoDAO {
         PreparedStatement p = conn.prepareStatement(sql);
         p.setInt(1, c);
         p.execute();
+        System.out.println(p);
         //pegar dados e mostrar eles.
         conn.close();
 
     }
 
-    public void alteraProdutos(int c) throws SQLException {
+    public void alteraProd(String nome, int qnt, float preco, int cod) throws SQLException {
         Connection conn = DriverManager.getConnection(STRING_CONEXAO);
-        //update
-        String sql = "select * from produto where codProd  = ?";
-        PreparedStatement p = conn.prepareStatement(sql);
-        p.setInt(1, c);
-        p.execute();
-        //pegar dados e mostrar eles
+        String sql = "update produto set nomeProd = ?, qntProd = ?, precoProd = ? where codProd = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, nome);
+        stmt.setInt(2, qnt);
+        stmt.setFloat(3, preco);
+        stmt.setInt(4, cod);
+
+        stmt.execute();
         conn.close();
     }
 
-    public boolean verificaCod(boolean c) throws SQLException {
-
+    public ProdutoDTO pegaBD(int c) throws SQLException {
         Connection conn = DriverManager.getConnection(STRING_CONEXAO);
-        String sql = "select codProd from produto where exists(select ?)";
-        
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sql) ;
-        if (rs.next()) {
-           //existe
-            return true;
-        } else {
-          //não existe
-            return false;
+        String sql = "select nomeProd, qntProd, precoProd, tamProd from produto where codProd = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, c);
+        ResultSet rs = stmt.executeQuery();
+        ProdutoDTO pDTO = new ProdutoDTO();
+        while (rs.next()) {
+            pDTO.setNomeProd(rs.getString(1));
+            pDTO.setQntProd(rs.getInt(2));
+            pDTO.setPrecoProd(rs.getFloat(3));
+            pDTO.setTamProd(rs.getString(4));
         }
-        /*if (sql == exists) {
-            return true;
-        } else {
-            return false;
-        }*/
+        conn.close();
+        return pDTO;
+
     }
 
+    public ArrayList<ProdutoDTO> pegaBDTudo() throws SQLException {
+        Connection conn = DriverManager.getConnection(STRING_CONEXAO);
+        String sql = "select codProd, nomeProd, qntProd, precoProd, tamProd from produto";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        ArrayList<ProdutoDTO> DTOgeral = new ArrayList<>();
+        while (rs.next()) {
+            ProdutoDTO cDTO = new ProdutoDTO();
+
+            cDTO.setCodProd(rs.getInt(1));
+            cDTO.setNomeProd(rs.getString(2));
+            cDTO.setPrecoProd(rs.getFloat(3));
+            cDTO.setQntProd(rs.getInt(4));
+            cDTO.setTamProd(rs.getString(5));
+            DTOgeral.add(cDTO);
+        }
+        conn.close();
+        return DTOgeral;
+        
+    }
+
+    public boolean verificaCod(int c) throws SQLException {
+
+        Connection conn = DriverManager.getConnection(STRING_CONEXAO);
+        String sql = "select codProd from produto where codProd = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, c);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            //existe
+            return true;
+
+        } else {
+            //não existe
+            return false;
+        }
+    }
+
+    public void removeProd(String c) throws SQLException {
+        Connection conn = DriverManager.getConnection(STRING_CONEXAO);
+        String sql = "delete from produto where codProd = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, c);
+        stmt.execute();
+        conn.close();
+    }
 }

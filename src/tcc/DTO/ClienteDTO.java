@@ -2,12 +2,18 @@ package tcc.DTO;
 
 public class ClienteDTO {
 
-    private String nomeCliente;
-    private String emailCliente;
-    private String enderecoCliente;
-    private String foneCliente;
-    private String celularCliente;
+    private String nomeCliente, emailCliente, enderecoCliente, foneCliente, celularCliente;
+    private int codCliente;
+    
+    public int getCodCliente() {
+        return codCliente;
+    }
 
+    public void setCodCliente(int codCliente) {
+        this.codCliente = codCliente;
+    }
+
+  
     public String getNomeCliente() {
         return nomeCliente;
     }
@@ -48,6 +54,6 @@ public class ClienteDTO {
         this.celularCliente = celularCliente;
 
     }
-
+    
    
 }
