@@ -123,4 +123,14 @@ public class ProdutoDAO {
         stmt.execute();
         conn.close();
     }
+    
+    public void baixaEstoque(int qnt, int c) throws SQLException{
+        Connection conn = DriverManager.getConnection(STRING_CONEXAO);
+        String sql = "update produto set qntProd = ? where codProd = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, qnt);
+        stmt.setInt(2, c);
+        stmt.execute();
+        conn.close();
+    }
 }
