@@ -46,7 +46,6 @@ public class AdmFace extends javax.swing.JFrame {
         ralatorios = new javax.swing.JMenu();
         relatorios = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        imprime = new javax.swing.JMenuItem();
         malha = new javax.swing.JMenu();
         calculaMalha = new javax.swing.JMenuItem();
         reserva = new javax.swing.JMenu();
@@ -214,9 +213,6 @@ public class AdmFace extends javax.swing.JFrame {
         });
         ralatorios.add(relatorios);
         ralatorios.add(jSeparator2);
-
-        imprime.setText("Imprimir...");
-        ralatorios.add(imprime);
 
         jMenuBar1.add(ralatorios);
 
@@ -440,7 +436,6 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem excluiCliente;
     private javax.swing.JMenuItem excluiProd;
     private javax.swing.JMenuItem fazerReserva;
-    private javax.swing.JMenuItem imprime;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

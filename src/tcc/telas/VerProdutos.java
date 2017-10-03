@@ -25,8 +25,8 @@ public class VerProdutos extends javax.swing.JFrame {
         };
         modelo.addColumn("Código");
         modelo.addColumn("Nome");
-        modelo.addColumn("Preço");
         modelo.addColumn("Quantidade");
+        modelo.addColumn("Preço");
         modelo.addColumn("Tamanho");
 
         ArrayList<ProdutoDTO> tab;
@@ -37,8 +37,8 @@ public class VerProdutos extends javax.swing.JFrame {
                 //Dados
                 vetor[0] = "" + prod.getCodProd();
                 vetor[1] = prod.getNomeProd();
-                vetor[2] = "" + prod.getPrecoProd();
-                vetor[3] = "" + prod.getQntProd();
+                vetor[2] = "" + prod.getQntProd();
+                vetor[3] = "" + prod.getPrecoProd();
                 vetor[4] = prod.getTamProd();
                 modelo.addRow(vetor);
             }

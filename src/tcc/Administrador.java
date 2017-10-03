@@ -44,10 +44,12 @@ public class Administrador {
          precoProd float not null,
          nomeProd varchar(50) not null,
          qntProd int not null
+   
          );
          alter table produto add column tamProd enum ('P', 'M', 'G') not null;
+         alter table produto add column datAdd date not null;
          select codProd from produto where exists(select codProd);
-         -- truncate table produto;
+         truncate table produto;
          -- drop table venda;
 
          create table venda (
@@ -55,7 +57,7 @@ public class Administrador {
          qntProd int not null,
          codCliente int not null,
          datVenda date,
-         foreign key (codProd) references produto (codProd),
+         foreign key (codProd) references produto (codProd), 
          foreign key (codCliente) references cliente (codCliente)
          );
  
@@ -64,6 +66,10 @@ public class Administrador {
          select * from cliente;
          select * from produto;
          select * from administrador;
+
+
+
+
 
          */
     }

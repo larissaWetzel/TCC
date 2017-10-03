@@ -87,8 +87,8 @@ public class ProdutoDAO {
 
             cDTO.setCodProd(rs.getInt(1));
             cDTO.setNomeProd(rs.getString(2));
-            cDTO.setPrecoProd(rs.getFloat(3));
-            cDTO.setQntProd(rs.getInt(4));
+            cDTO.setQntProd(rs.getInt(3));
+            cDTO.setPrecoProd(rs.getFloat(4));
             cDTO.setTamProd(rs.getString(5));
             DTOgeral.add(cDTO);
         }
@@ -124,11 +124,11 @@ public class ProdutoDAO {
         conn.close();
     }
     
-    public void baixaEstoque(int qnt, int c) throws SQLException{
+    public void baixaEstoque(int total, int c) throws SQLException{
         Connection conn = DriverManager.getConnection(STRING_CONEXAO);
         String sql = "update produto set qntProd = ? where codProd = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, qnt);
+        stmt.setInt(1, total);
         stmt.setInt(2, c);
         stmt.execute();
         conn.close();
