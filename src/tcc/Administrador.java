@@ -47,29 +47,13 @@ public class Administrador {
    
          );
          alter table produto add column tamProd enum ('P', 'M', 'G') not null;
-         alter table produto add column datAdd date not null;
-         select codProd from produto where exists(select codProd);
+         select codProd from produto where exists (select codProd);
+    
          truncate table produto;
-         -- drop table venda;
-
-         create table venda (
-         codProd int not null,
-         qntProd int not null,
-         codCliente int not null,
-         datVenda date,
-         foreign key (codProd) references produto (codProd), 
-         foreign key (codCliente) references cliente (codCliente)
-         );
- 
-         insert into venda (codProd, codCliente) values (codProd, codCliente); 
  
          select * from cliente;
          select * from produto;
          select * from administrador;
-
-
-
-
 
          */
     }
