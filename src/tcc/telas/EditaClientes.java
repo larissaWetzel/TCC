@@ -70,6 +70,11 @@ public class EditaClientes extends javax.swing.JFrame {
         jLabel1.setText("Insira o código do cliente: ");
 
         buscaCodCliente.setToolTipText("Insira o código do cliente");
+        buscaCodCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodClienteKeyTyped(evt);
+            }
+        });
 
         botaoProcura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
         botaoProcura.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +137,18 @@ public class EditaClientes extends javax.swing.JFrame {
         jLabel8.setText("Email: ");
 
         novoTelefone.setToolTipText("Ex.: 4712345678");
+        novoTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                novoTelefoneKeyTyped(evt);
+            }
+        });
 
         novoCelular.setToolTipText("Ex.: 47912345678");
+        novoCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                novoCelularKeyTyped(evt);
+            }
+        });
 
         novoEmail.setToolTipText("Ex.: email@gmail.com");
 
@@ -403,6 +418,7 @@ public class EditaClientes extends javax.swing.JFrame {
                 Mensagens.Info("Dados atualizados com sucesso.");
                 buscaCodCliente.setEditable(true);
                 buscaCodCliente.setText("");
+                buscaCodCliente.requestFocus();
                 botaoProcura.setEnabled(true);
                 novoNome.setText("");
                 novoTelefone.setText("");
@@ -466,6 +482,27 @@ public class EditaClientes extends javax.swing.JFrame {
             novoEmail.setEditable(false);
         }
     }//GEN-LAST:event_boxEmailActionPerformed
+
+    private void novoTelefoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoTelefoneKeyTyped
+        String caracteres = "0987654321()";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_novoTelefoneKeyTyped
+
+    private void novoCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoCelularKeyTyped
+        String caracteres = "0987654321()";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_novoCelularKeyTyped
+
+    private void buscaCodClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodClienteKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_buscaCodClienteKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelCliente;

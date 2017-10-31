@@ -19,6 +19,7 @@ public class Baixa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         buscaCodProd = new javax.swing.JTextField();
@@ -42,6 +43,8 @@ public class Baixa extends javax.swing.JFrame {
         campoQnt = new javax.swing.JTextField();
         campoTotal = new javax.swing.JTextField();
 
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex - Vendas");
 
@@ -51,6 +54,11 @@ public class Baixa extends javax.swing.JFrame {
         jLabel2.setText("Atualização do estoque");
 
         buscaCodProd.setToolTipText("Informe o código do produto a ser removido de estoque:");
+        buscaCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodProdKeyTyped(evt);
+            }
+        });
 
         botaoBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
         botaoBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +70,12 @@ public class Baixa extends javax.swing.JFrame {
         jLabel3.setText("Dados:");
 
         jLabel4.setText("Quantidade a ser vendida do estoque:");
+
+        removeQnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                removeQntKeyTyped(evt);
+            }
+        });
 
         botaoRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/confirmar.png"))); // NOI18N
         botaoRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -282,16 +296,16 @@ public class Baixa extends javax.swing.JFrame {
         int c = Integer.parseInt(buscaCodProd.getText());
         try {
             if (qnt <= pDTO.getQntProd() && qnt >= 1) {
-                int qntAnt =  pDTO.getQntProd();
-                int total =  qntAnt - qnt;
-                pDAO.baixaEstoque(total,c);
+                int qntAnt = pDTO.getQntProd();
+                int total = qntAnt - qnt;
+                pDAO.baixaEstoque(total, c);
                 Mensagens.Info("Estoque atualizado \n"
                         + "Quantidade atual: " + total);
                 int y = pDTO.getQntProd() - Integer.parseInt(removeQnt.getText());
-                campoQnt.setText(""+y);
-                
-                int x = (int) ((pDTO.getPrecoProd())*(Integer.parseInt(removeQnt.getText())));
-                campoTotal.setText(""+x);
+                campoQnt.setText("" + y);
+
+                int x = (int) ((pDTO.getPrecoProd()) * (Integer.parseInt(removeQnt.getText())));
+                campoTotal.setText("" + x);
             } else {
                 Mensagens.Aviso("Quantidade inválida \n"
                         + "Deve ser maior que 1 e menor que " + pDTO.getQntProd() + ".");
@@ -319,8 +333,22 @@ public class Baixa extends javax.swing.JFrame {
     }//GEN-LAST:event_campoQntActionPerformed
 
     private void campoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTotalActionPerformed
-        
+
     }//GEN-LAST:event_campoTotalActionPerformed
+
+    private void buscaCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodProdKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_buscaCodProdKeyTyped
+
+    private void removeQntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_removeQntKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_removeQntKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,6 +369,7 @@ public class Baixa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField preco;
     private javax.swing.JTextField qtd;

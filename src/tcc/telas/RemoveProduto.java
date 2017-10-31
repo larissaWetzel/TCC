@@ -44,6 +44,12 @@ public class RemoveProduto extends javax.swing.JFrame {
 
         jLabel2.setText("Informe o código do produto: ");
 
+        buscaCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodProdKeyTyped(evt);
+            }
+        });
+
         botaoProcura.setText("Buscar");
         botaoProcura.setActionCommand("buscar");
         botaoProcura.addActionListener(new java.awt.event.ActionListener() {
@@ -218,6 +224,7 @@ public class RemoveProduto extends javax.swing.JFrame {
             Mensagens.Info("Produto removido com sucesso.");
             botaoExclui.setEnabled(false);
             buscaCodProd.setText("");
+            buscaCodProd.requestFocus();
             nome.setText("");
             qtd.setText("");
             preco.setText("");
@@ -234,6 +241,13 @@ public class RemoveProduto extends javax.swing.JFrame {
         admface.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_botaoVoltaActionPerformed
+
+    private void buscaCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodProdKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_buscaCodProdKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

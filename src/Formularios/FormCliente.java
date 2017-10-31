@@ -73,6 +73,11 @@ public class FormCliente extends javax.swing.JFrame {
                 foneClienteActionPerformed(evt);
             }
         });
+        foneCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                foneClienteKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Celular *");
 
@@ -80,6 +85,11 @@ public class FormCliente extends javax.swing.JFrame {
         celularCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celularClienteActionPerformed(evt);
+            }
+        });
+        celularCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                celularClienteKeyTyped(evt);
             }
         });
 
@@ -252,6 +262,7 @@ public class FormCliente extends javax.swing.JFrame {
                     try {
                         cDAO.cadastraClientes(n, f, c, email, e);
                         Mensagens.Info("Cliente cadastrado com sucesso");
+                        nomeCliente.requestFocus();
                         nomeCliente.setText("");
                         foneCliente.setText("");
                         celularCliente.setText("");
@@ -274,6 +285,20 @@ public class FormCliente extends javax.swing.JFrame {
         Validacao.validaTextos(enderecoCliente);
         enderecoCliente.getText();
     }//GEN-LAST:event_enderecoClienteActionPerformed
+
+    private void foneClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foneClienteKeyTyped
+        String caracteres = "0987654321()";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_foneClienteKeyTyped
+
+    private void celularClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celularClienteKeyTyped
+        String caracteres = "0987654321()";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_celularClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

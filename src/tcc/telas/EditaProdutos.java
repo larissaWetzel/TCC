@@ -58,6 +58,11 @@ public class EditaProdutos extends javax.swing.JFrame {
                 buscaCodigoProdActionPerformed(evt);
             }
         });
+        buscaCodigoProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodigoProdKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Insira o código do produto:");
 
@@ -96,6 +101,18 @@ public class EditaProdutos extends javax.swing.JFrame {
         jLabel5.setText("Quantidade: ");
 
         jLabel6.setText("Preço:");
+
+        novoQntProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                novoQntProdKeyTyped(evt);
+            }
+        });
+
+        novoPrecoProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                novoPrecoProdKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelAlteraProdLayout = new javax.swing.GroupLayout(PanelAlteraProd);
         PanelAlteraProd.setLayout(PanelAlteraProdLayout);
@@ -233,6 +250,7 @@ public class EditaProdutos extends javax.swing.JFrame {
             int c = Integer.parseInt(cod);
             try {
                 if (pDAO.verificaCod(c)) {
+                    buscaCodigoProd.setEditable(false);
                     botaoProcura.setEnabled(false);
                     PanelAlteraProd.setVisible(true);
                     botaoAlteraProduto.setEnabled(true);
@@ -257,7 +275,6 @@ public class EditaProdutos extends javax.swing.JFrame {
 
     private void botaoAlteraProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraProdutoActionPerformed
         if (buscaCodigoProd.isEnabled()) {
-            buscaCodigoProd.setEnabled(false);
             if (boxNome.isSelected()) {
                 if (novoNomeProd.getText().isEmpty()) {
                     Mensagens.Aviso("Informe o novo nome para alterar");
@@ -298,7 +315,9 @@ public class EditaProdutos extends javax.swing.JFrame {
                 Mensagens.Info("Dados atualizados com sucesso.");
                 buscaCodigoProd.setEditable(true);
                 buscaCodigoProd.setText("");
+                buscaCodigoProd.requestFocus();
                 botaoProcura.setEnabled(true);
+                novoQntProd.setEditable(false);
                 novoQntProd.setText("");
                 novoNomeProd.setText("");
                 novoPrecoProd.setEditable(false);
@@ -346,6 +365,27 @@ public class EditaProdutos extends javax.swing.JFrame {
         admface.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_botaoVoltaActionPerformed
+
+    private void buscaCodigoProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodigoProdKeyTyped
+       String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_buscaCodigoProdKeyTyped
+
+    private void novoQntProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoQntProdKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_novoQntProdKeyTyped
+
+    private void novoPrecoProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoPrecoProdKeyTyped
+        String caracteres = "0987654321.";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_novoPrecoProdKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelAlteraProd;

@@ -59,6 +59,11 @@ public class CalculaMalha extends javax.swing.JFrame {
                 metroActionPerformed(evt);
             }
         });
+        metro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                metroKeyTyped(evt);
+            }
+        });
 
         botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/calc.png"))); // NOI18N
         botaoCalcular.setText("Calcular Preço");
@@ -246,6 +251,13 @@ public class CalculaMalha extends javax.swing.JFrame {
     private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalActionPerformed
+
+    private void metroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_metroKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_metroKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
