@@ -64,6 +64,11 @@ public class RemoveCliente extends javax.swing.JFrame {
         email.setEditable(false);
 
         endereco.setEditable(false);
+        endereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enderecoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelDadosLayout = new javax.swing.GroupLayout(PanelDados);
         PanelDados.setLayout(PanelDadosLayout);
@@ -225,6 +230,10 @@ public class RemoveCliente extends javax.swing.JFrame {
            Mensagens.Erro("Erro com o banco de dados");
         }
     }//GEN-LAST:event_botaoExcluiActionPerformed
+
+    private void enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enderecoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

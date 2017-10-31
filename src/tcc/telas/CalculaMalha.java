@@ -71,6 +71,11 @@ public class CalculaMalha extends javax.swing.JFrame {
         jLabel4.setText("Total:");
 
         total.setEditable(false);
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(ribana);
         ribana.setText("Ribana");
@@ -237,6 +242,10 @@ public class CalculaMalha extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_botaoCalcularActionPerformed
+
+    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

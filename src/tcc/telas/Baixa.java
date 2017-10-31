@@ -1,8 +1,6 @@
 package tcc.telas;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import tcc.DAO.ProdutoDAO;
 import tcc.DTO.ProdutoDTO;
 import tcc.Util.Mensagens;
@@ -31,7 +29,6 @@ public class Baixa extends javax.swing.JFrame {
         botaoRemove = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         PanelDados = new javax.swing.JPanel();
         nome = new javax.swing.JTextField();
         qtd = new javax.swing.JTextField();
@@ -42,13 +39,15 @@ public class Baixa extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         botaoVolta = new javax.swing.JButton();
-        campoQnd = new javax.swing.JTextField();
+        campoQnt = new javax.swing.JTextField();
         campoTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vanetex - Vendas");
 
         jLabel1.setText("Código do produto:");
 
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         jLabel2.setText("Atualização do estoque");
 
         buscaCodProd.setToolTipText("Informe o código do produto a ser removido de estoque:");
@@ -71,11 +70,9 @@ public class Baixa extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Quantidade retirada do estoque: ");
+        jLabel5.setText("Quantidade atual no estoque: ");
 
         jLabel6.setText("total vendido");
-
-        jLabel7.setText("adicionar no relatório diario e mensal");
 
         nome.setEditable(false);
 
@@ -149,14 +146,19 @@ public class Baixa extends javax.swing.JFrame {
             }
         });
 
-        campoQnd.setEditable(false);
-        campoQnd.addActionListener(new java.awt.event.ActionListener() {
+        campoQnt.setEditable(false);
+        campoQnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoQndActionPerformed(evt);
+                campoQntActionPerformed(evt);
             }
         });
 
         campoTotal.setEditable(false);
+        campoTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,7 +185,6 @@ public class Baixa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,7 +194,7 @@ public class Baixa extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(campoQnd, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(campoQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -220,12 +221,11 @@ public class Baixa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(PanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoRemove)
                     .addComponent(removeQnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,14 +233,12 @@ public class Baixa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(campoQnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoQnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(campoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(5, 5, 5)
+                .addGap(25, 25, 25)
                 .addComponent(botaoVolta)
                 .addContainerGap())
         );
@@ -289,7 +287,11 @@ public class Baixa extends javax.swing.JFrame {
                 pDAO.baixaEstoque(total,c);
                 Mensagens.Info("Estoque atualizado \n"
                         + "Quantidade atual: " + total);
+                int y = pDTO.getQntProd() - Integer.parseInt(removeQnt.getText());
+                campoQnt.setText(""+y);
                 
+                int x = (int) ((pDTO.getPrecoProd())*(Integer.parseInt(removeQnt.getText())));
+                campoTotal.setText(""+x);
             } else {
                 Mensagens.Aviso("Quantidade inválida \n"
                         + "Deve ser maior que 1 e menor que " + pDTO.getQntProd() + ".");
@@ -312,9 +314,13 @@ public class Baixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_qtdActionPerformed
 
-    private void campoQndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoQndActionPerformed
+    private void campoQntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoQntActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoQndActionPerformed
+    }//GEN-LAST:event_campoQntActionPerformed
+
+    private void campoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTotalActionPerformed
+        
+    }//GEN-LAST:event_campoTotalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,7 +329,7 @@ public class Baixa extends javax.swing.JFrame {
     private javax.swing.JButton botaoRemove;
     private javax.swing.JButton botaoVolta;
     private javax.swing.JTextField buscaCodProd;
-    private javax.swing.JTextField campoQnd;
+    private javax.swing.JTextField campoQnt;
     private javax.swing.JTextField campoTotal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -333,7 +339,6 @@ public class Baixa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nome;

@@ -46,6 +46,7 @@ public class ProdutoDAO {
     }
 
     public void alteraProd(String nome, int qnt, float preco, int cod) throws SQLException {
+
         Connection conn = DriverManager.getConnection(STRING_CONEXAO);
         String sql = "update produto set nomeProd = ?, qntProd = ?, precoProd = ? where codProd = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);

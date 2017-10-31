@@ -23,10 +23,11 @@ public class AdmFace extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jLabel2 = new javax.swing.JLabel();
         botaoCadastraClientes = new javax.swing.JButton();
         botaoCadastraProdutos = new javax.swing.JButton();
-        botaoReserva = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         clientes = new javax.swing.JMenu();
@@ -43,16 +44,11 @@ public class AdmFace extends javax.swing.JFrame {
         excluiProd = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         consulta = new javax.swing.JMenuItem();
-        ralatorios = new javax.swing.JMenu();
-        relatorios = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         malha = new javax.swing.JMenu();
         calculaMalha = new javax.swing.JMenuItem();
-        reserva = new javax.swing.JMenu();
-        verReservas = new javax.swing.JMenuItem();
-        fazerReserva = new javax.swing.JMenuItem();
         vendas = new javax.swing.JMenu();
         baixaEst = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -69,6 +65,11 @@ public class AdmFace extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jMenuItem3.setText("jMenuItem3");
+
+        jLabel3.setText("jLabel3");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vanetex");
@@ -88,13 +89,6 @@ public class AdmFace extends javax.swing.JFrame {
         botaoCadastraProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastraProdutosActionPerformed(evt);
-            }
-        });
-
-        botaoReserva.setText("Reservas");
-        botaoReserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoReservaActionPerformed(evt);
             }
         });
 
@@ -202,20 +196,6 @@ public class AdmFace extends javax.swing.JFrame {
 
         jMenuBar1.add(produtos);
 
-        ralatorios.setText("Relatórios");
-
-        relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/relatorios.png"))); // NOI18N
-        relatorios.setText("Ver Relatórios...");
-        relatorios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                relatoriosActionPerformed(evt);
-            }
-        });
-        ralatorios.add(relatorios);
-        ralatorios.add(jSeparator2);
-
-        jMenuBar1.add(ralatorios);
-
         malha.setText("Malha");
 
         calculaMalha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/calc.png"))); // NOI18N
@@ -228,28 +208,6 @@ public class AdmFace extends javax.swing.JFrame {
         malha.add(calculaMalha);
 
         jMenuBar1.add(malha);
-
-        reserva.setText("Reservas");
-
-        verReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
-        verReservas.setText("Ver Reservas...");
-        verReservas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verReservasActionPerformed(evt);
-            }
-        });
-        reserva.add(verReservas);
-
-        fazerReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/reservas.png"))); // NOI18N
-        fazerReserva.setText("Fazer Reserva...");
-        fazerReserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fazerReservaActionPerformed(evt);
-            }
-        });
-        reserva.add(fazerReserva);
-
-        jMenuBar1.add(reserva);
 
         vendas.setText("Vendas");
         vendas.setToolTipText("");
@@ -264,6 +222,9 @@ public class AdmFace extends javax.swing.JFrame {
 
         jMenuBar1.add(vendas);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/icon.png"))); // NOI18N
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,15 +236,13 @@ public class AdmFace extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
                 .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
         );
@@ -294,7 +253,6 @@ public class AdmFace extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCadastraProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCadastraClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
@@ -310,13 +268,6 @@ public class AdmFace extends javax.swing.JFrame {
         formCliente.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_cadastraClienteActionPerformed
-
-    private void relatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatoriosActionPerformed
-        Relatorios_tela rt = new Relatorios_tela();
-        rt.setVisible(true);
-        rt.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_relatoriosActionPerformed
 
     private void botaoCadastraProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastraProdutosActionPerformed
         FormProduto formProduto = new FormProduto();
@@ -385,33 +336,12 @@ public class AdmFace extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_excluiProdActionPerformed
 
-    private void botaoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservaActionPerformed
-        Reservas_tela res = new Reservas_tela();
-        res.setVisible(true);
-        res.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_botaoReservaActionPerformed
-
-    private void fazerReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazerReservaActionPerformed
-        Reservas_tela res = new Reservas_tela();
-        res.setVisible(true);
-        res.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_fazerReservaActionPerformed
-
     private void calculaMalhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculaMalhaActionPerformed
         CalculaMalha cm = new CalculaMalha();
         cm.setVisible(true);
         cm.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_calculaMalhaActionPerformed
-
-    private void verReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservasActionPerformed
-        VerReservas vr = new VerReservas();
-        vr.setVisible(true);
-        vr.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_verReservasActionPerformed
 
     private void baixaEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baixaEstActionPerformed
         Baixa b = new Baixa();
@@ -425,7 +355,6 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem baixaEst;
     private javax.swing.JButton botaoCadastraClientes;
     private javax.swing.JButton botaoCadastraProdutos;
-    private javax.swing.JButton botaoReserva;
     private javax.swing.JMenuItem cadastraCliente;
     private javax.swing.JMenuItem cadastraProd;
     private javax.swing.JMenuItem calculaMalha;
@@ -435,19 +364,20 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JMenuItem editaProd;
     private javax.swing.JMenuItem excluiCliente;
     private javax.swing.JMenuItem excluiProd;
-    private javax.swing.JMenuItem fazerReserva;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JMenu malha;
@@ -455,12 +385,8 @@ public class AdmFace extends javax.swing.JFrame {
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
     private javax.swing.JMenu produtos;
-    private javax.swing.JMenu ralatorios;
-    private javax.swing.JMenuItem relatorios;
-    private javax.swing.JMenu reserva;
     private javax.swing.JMenuItem sairItemMenu;
     private javax.swing.JMenu vendas;
     private javax.swing.JMenuItem verClientes;
-    private javax.swing.JMenuItem verReservas;
     // End of variables declaration//GEN-END:variables
 }
