@@ -82,7 +82,7 @@ public class Baixa extends javax.swing.JFrame {
 
         jLabel5.setText("Quantidade atual no estoque: ");
 
-        jLabel6.setText("total vendido");
+        jLabel6.setText("Lucro (R$):");
 
         nome.setEditable(false);
 
@@ -197,7 +197,7 @@ public class Baixa extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(campoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

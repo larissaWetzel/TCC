@@ -50,7 +50,7 @@ public class Administrador {
          alter table produto add column tamProd enum ('P', 'M', 'G') not null;
          select codProd from produto where exists (select codProd);
     
-         truncate table produto;
+        
 
          */
     }
