@@ -104,7 +104,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscaCodigoProdActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscaCodigoProdKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -242,14 +241,8 @@
         <Component class="javax.swing.JTextField" name="novoNomeProd">
         </Component>
         <Component class="javax.swing.JTextField" name="novoQntProd">
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="novoQntProdKeyTyped"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="novoPrecoProd">
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="novoPrecoProdKeyTyped"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

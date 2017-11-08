@@ -11,8 +11,8 @@ import tcc.DTO.ProdutoDTO;
 
 public class ProdutoDAO {
 
-    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3307/loja_vanetex?"
-            + "user=root&password=root";
+    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3306/loja_vanetex?"
+            + "user=root&password=alunoifc";
 
     public void cadastraProdutos(float pre, int qnt, String nome, String tam) throws SQLException {
 

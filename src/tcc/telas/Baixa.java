@@ -54,11 +54,6 @@ public class Baixa extends javax.swing.JFrame {
         jLabel2.setText("Atualização do estoque");
 
         buscaCodProd.setToolTipText("Informe o código do produto a ser removido de estoque:");
-        buscaCodProd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                buscaCodProdKeyTyped(evt);
-            }
-        });
 
         botaoBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
         botaoBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -70,12 +65,6 @@ public class Baixa extends javax.swing.JFrame {
         jLabel3.setText("Dados:");
 
         jLabel4.setText("Quantidade a ser vendida do estoque:");
-
-        removeQnt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                removeQntKeyTyped(evt);
-            }
-        });
 
         botaoRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/confirmar.png"))); // NOI18N
         botaoRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -335,20 +324,6 @@ public class Baixa extends javax.swing.JFrame {
     private void campoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTotalActionPerformed
 
     }//GEN-LAST:event_campoTotalActionPerformed
-
-    private void buscaCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodProdKeyTyped
-        String caracteres = "0987654321";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_buscaCodProdKeyTyped
-
-    private void removeQntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_removeQntKeyTyped
-        String caracteres = "0987654321";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_removeQntKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

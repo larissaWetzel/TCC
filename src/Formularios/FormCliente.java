@@ -1,6 +1,7 @@
 package Formularios;
 
 import java.sql.SQLException;
+import javax.swing.text.MaskFormatter;
 import tcc.DAO.ClienteDAO;
 import tcc.Util.Mensagens;
 import tcc.telas.AdmFace;
@@ -16,6 +17,17 @@ public class FormCliente extends javax.swing.JFrame {
 
     public FormCliente() {
         initComponents();
+    }
+
+    protected MaskFormatter createFormatter(String s) {
+        MaskFormatter formatter = null;
+        try {
+            formatter = new MaskFormatter(s);
+        } catch (java.text.ParseException exc) {
+            System.err.println("formatter is bad: " + exc.getMessage());
+            System.exit(-1);
+        }
+        return formatter;
     }
 
     @SuppressWarnings("unchecked")
@@ -67,29 +79,21 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel4.setText("Telefone *");
         jLabel4.setToolTipText("");
 
+        foneCliente = new javax.swing.JFormattedTextField(createFormatter("(##) ####-####"));
         foneCliente.setToolTipText("Digite o telefone do cliente. Modelo:(12)12345678 ");
         foneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foneClienteActionPerformed(evt);
             }
         });
-        foneCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                foneClienteKeyTyped(evt);
-            }
-        });
 
         jLabel5.setText("Celular *");
 
+        celularCliente = new javax.swing.JFormattedTextField(createFormatter("(##) 9####-####"));
         celularCliente.setToolTipText("Digite o celular do cliente. Modelo(12)123456789");
         celularCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celularClienteActionPerformed(evt);
-            }
-        });
-        celularCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                celularClienteKeyTyped(evt);
             }
         });
 
@@ -285,20 +289,6 @@ public class FormCliente extends javax.swing.JFrame {
         Validacao.validaTextos(enderecoCliente);
         enderecoCliente.getText();
     }//GEN-LAST:event_enderecoClienteActionPerformed
-
-    private void foneClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foneClienteKeyTyped
-        String caracteres = "0987654321()";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_foneClienteKeyTyped
-
-    private void celularClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celularClienteKeyTyped
-        String caracteres = "0987654321()";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_celularClienteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

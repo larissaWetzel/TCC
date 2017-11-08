@@ -57,11 +57,6 @@ public class FormProduto extends javax.swing.JFrame {
         jLabel4.setText("Preço unitário");
 
         precoProd.setToolTipText("Insira o preço do produto");
-        precoProd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                precoProdKeyTyped(evt);
-            }
-        });
 
         jLabel5.setText("Quantidade");
 
@@ -90,11 +85,6 @@ public class FormProduto extends javax.swing.JFrame {
         });
 
         qntProd.setToolTipText("Insira a quantidade");
-        qntProd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                qntProdKeyTyped(evt);
-            }
-        });
 
         jLabel3.setText("Tamanho:");
 
@@ -252,6 +242,7 @@ public class FormProduto extends javax.swing.JFrame {
                 botaoG.setSelected(false);
                 botaoM.setSelected(false);
                 botaoP.setSelected(false);
+                nomeProd.setEditable(true);
                 nomeProd.requestFocus();
             } catch (SQLException ex) {
                 Mensagens.Erro("Erro com o banco de dados");
@@ -268,20 +259,6 @@ public class FormProduto extends javax.swing.JFrame {
     private void botaoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoMActionPerformed
-
-    private void precoProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoProdKeyTyped
-        String caracteres = "0987654321.";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_precoProdKeyTyped
-
-    private void qntProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qntProdKeyTyped
-        String caracteres = "0987654321";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_qntProdKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
