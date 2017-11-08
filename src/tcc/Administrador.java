@@ -10,7 +10,8 @@ public class Administrador {
         p.setLocationRelativeTo(null);
         p.setVisible(true);
         /*
-         create schema loja_vanetex;
+        drop database if exists loja_vanetex;
+ create schema loja_vanetex;
          use loja_vanetex;
 
 
@@ -18,8 +19,8 @@ public class Administrador {
          (
          codCliente int auto_increment primary key,
          nomeCliente varchar(60) not null,
-         foneCliente varchar(13) not null,
-         celularCliente varchar(14) not null,
+         foneCliente varchar(14) not null,
+         celularCliente varchar(15) not null,
          emailCliente varchar(100) not null,
          enderecoCliente varchar(100) not null
          );
@@ -50,10 +51,6 @@ public class Administrador {
          select codProd from produto where exists (select codProd);
     
          truncate table produto;
- 
-         select * from cliente;
-         select * from produto;
-         select * from administrador;
 
          */
     }

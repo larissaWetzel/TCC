@@ -119,6 +119,7 @@ public class Principal extends javax.swing.JFrame {
                 if (admDTO == null) {
                     Mensagens.Erro("Login inválido.");
                     nomeAdm.requestFocus();
+                    nomeAdm.setEditable(true);
                 } else{
                     AdmFace admFace = new AdmFace();
                     admFace.setVisible(true);
