@@ -254,11 +254,11 @@ public class FormCliente extends javax.swing.JFrame {
         if (n.isEmpty() || f.isEmpty() || c.isEmpty() || email.isEmpty() || e.isEmpty()) {
             Mensagens.Aviso("Alguns dados não foram preenchidos corretamente");
         } else {
-            if (f.length() != 12) {
+            if (f.length() != 14) {
                 Mensagens.Aviso(foneCliente.getToolTipText());
                 foneCliente.requestFocus();
             } else {
-                if (c.length() != 13) {
+                if (c.length() != 15) {
                     Mensagens.Aviso(celularCliente.getToolTipText());
                     celularCliente.requestFocus();
                 } else {

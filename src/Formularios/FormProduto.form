@@ -163,6 +163,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Insira o pre&#xe7;o do produto"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="precoProdKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -206,6 +209,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Insira a quantidade"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="qntProdKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>

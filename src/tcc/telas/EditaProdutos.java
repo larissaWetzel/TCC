@@ -58,6 +58,11 @@ public class EditaProdutos extends javax.swing.JFrame {
                 buscaCodigoProdActionPerformed(evt);
             }
         });
+        buscaCodigoProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodigoProdKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Insira o código do produto:");
 
@@ -348,6 +353,13 @@ public class EditaProdutos extends javax.swing.JFrame {
         admface.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_botaoVoltaActionPerformed
+
+    private void buscaCodigoProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodigoProdKeyTyped
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_buscaCodigoProdKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelAlteraProd;

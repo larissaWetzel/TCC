@@ -1,6 +1,7 @@
 package tcc.telas;
 
 import java.sql.SQLException;
+import javax.swing.text.MaskFormatter;
 import tcc.DAO.ClienteDAO;
 import tcc.DTO.ClienteDTO;
 import tcc.Util.Mensagens;
@@ -10,13 +11,22 @@ public class EditaClientes extends javax.swing.JFrame {
     ClienteDAO cDAO = new ClienteDAO();
     ClienteDTO cDTO = new ClienteDTO();
     private String novoN, novoEn, novoEm, novoT, novoC, cod;
-    
-   
 
     public EditaClientes() {
         initComponents();
         PanelCliente.setVisible(false);
         botaoAlteraCliente.setEnabled(false);
+    }
+    
+    protected MaskFormatter createFormatter(String s) {
+        MaskFormatter formatter = null;
+        try {
+            formatter = new MaskFormatter(s);
+        } catch (java.text.ParseException exc) {
+            System.err.println("formatter is bad: " + exc.getMessage());
+            System.exit(-1);
+        }
+        return formatter;
     }
 
     @SuppressWarnings("unchecked")
@@ -70,6 +80,11 @@ public class EditaClientes extends javax.swing.JFrame {
         jLabel1.setText("Insira o código do cliente: ");
 
         buscaCodCliente.setToolTipText("Insira o código do cliente");
+        buscaCodCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaCodClienteKeyTyped(evt);
+            }
+        });
 
         botaoProcura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/busca.png"))); // NOI18N
         botaoProcura.addActionListener(new java.awt.event.ActionListener() {
@@ -131,19 +146,11 @@ public class EditaClientes extends javax.swing.JFrame {
 
         jLabel8.setText("Email: ");
 
+        novoTelefone = new javax.swing.JFormattedTextField(createFormatter("(##) ####-####"));
         novoTelefone.setToolTipText("Ex.: 4712345678");
-        novoTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                novoTelefoneKeyTyped(evt);
-            }
-        });
 
+        novoCelular = new javax.swing.JFormattedTextField(createFormatter("(##) 9####-####"));
         novoCelular.setToolTipText("Ex.: 47912345678");
-        novoCelular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                novoCelularKeyTyped(evt);
-            }
-        });
 
         novoEmail.setToolTipText("Ex.: email@gmail.com");
 
@@ -298,7 +305,7 @@ public class EditaClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void novoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoNomeActionPerformed
-       
+
     }//GEN-LAST:event_novoNomeActionPerformed
 
     private void botaoVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltaActionPerformed
@@ -309,7 +316,7 @@ public class EditaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltaActionPerformed
 
     private void botaoProcuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoProcuraActionPerformed
-       
+
         cod = buscaCodCliente.getText();
         if (cod.isEmpty()) {
             Mensagens.Aviso("Informe o código para buscar.");
@@ -332,9 +339,9 @@ public class EditaClientes extends javax.swing.JFrame {
                 }
                 cDTO = cDAO.pegaBD(c);
                 novoNome.setText(cDTO.getNomeCliente());
-                novoTelefone.setText( cDTO.getFoneCliente());
-                novoCelular.setText( cDTO.getCelularCliente());
-                novoEndereco.setText( cDTO.getEnderecoCliente());
+                novoTelefone.setText(cDTO.getFoneCliente());
+                novoCelular.setText(cDTO.getCelularCliente());
+                novoEndereco.setText(cDTO.getEnderecoCliente());
                 novoEmail.setText("" + cDTO.getEmailCliente());
 
             } catch (SQLException ex) {
@@ -358,7 +365,7 @@ public class EditaClientes extends javax.swing.JFrame {
             } else {
                 novoN = cDTO.getNomeCliente();
             }
-             
+
             //Telefone
             if (boxTelefone.isSelected()) {
                 if (novoTelefone.getText().isEmpty()) {
@@ -370,7 +377,7 @@ public class EditaClientes extends javax.swing.JFrame {
             } else {
                 novoT = cDTO.getFoneCliente();
             }
-            
+
             //Celular
             if (boxCelular.isSelected()) {
                 if (novoCelular.getText().isEmpty()) {
@@ -382,10 +389,10 @@ public class EditaClientes extends javax.swing.JFrame {
             } else {
                 novoC = cDTO.getCelularCliente();
             }
-            
+
             //Email
-            if(boxEmail.isSelected()){
-                if(novoEmail.getText().isEmpty()){
+            if (boxEmail.isSelected()) {
+                if (novoEmail.getText().isEmpty()) {
                     Mensagens.Aviso("Informe o novo email para alterar");
                     return;
                 } else {
@@ -394,20 +401,19 @@ public class EditaClientes extends javax.swing.JFrame {
             } else {
                 novoEm = cDTO.getEmailCliente();
             }
-            
+
             //Endereço
-            if(boxEndereco.isSelected()){
-                if(novoEndereco.getText().isEmpty()){
-                   Mensagens.Aviso("Informe o novo endereço para alterar");
-                   return; 
+            if (boxEndereco.isSelected()) {
+                if (novoEndereco.getText().isEmpty()) {
+                    Mensagens.Aviso("Informe o novo endereço para alterar");
+                    return;
                 } else {
                     novoEn = novoEndereco.getText();
                 }
             } else {
                 novoEn = cDTO.getEnderecoCliente();
             }
-                     
-            
+
             try {
                 cDAO.alteraCliente(novoN, novoT, novoC, novoEm, novoEn, cod);
                 Mensagens.Info("Dados atualizados com sucesso.");
@@ -430,7 +436,7 @@ public class EditaClientes extends javax.swing.JFrame {
                 boxCelular.setSelected(false);
                 boxEndereco.setSelected(false);
                 boxEmail.setSelected(false);
-                
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 Mensagens.Erro("Erro com o Banco de Dados");
@@ -447,7 +453,7 @@ public class EditaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_boxNomeActionPerformed
 
     private void boxTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTelefoneActionPerformed
-       if (boxTelefone.isSelected()) {
+        if (boxTelefone.isSelected()) {
             novoTelefone.setEditable(true);
         } else {
             novoTelefone.setEditable(false);
@@ -478,19 +484,12 @@ public class EditaClientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boxEmailActionPerformed
 
-    private void novoTelefoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoTelefoneKeyTyped
-        String caracteres = "0987654321()";
+    private void buscaCodClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaCodClienteKeyTyped
+        String caracteres = "0987654321";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
             evt.consume();
         }
-    }//GEN-LAST:event_novoTelefoneKeyTyped
-
-    private void novoCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_novoCelularKeyTyped
-        String caracteres = "0987654321()";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_novoCelularKeyTyped
+    }//GEN-LAST:event_buscaCodClienteKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelCliente;

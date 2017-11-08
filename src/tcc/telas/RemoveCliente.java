@@ -224,15 +224,17 @@ public class RemoveCliente extends javax.swing.JFrame {
         if (cod.isEmpty()) {
             Mensagens.Aviso("Informe o código para buscar.");
             buscaCodCliente.requestFocus();
+            buscaCodCliente.setEditable(true);
         } else {
             
             int c = Integer.parseInt(cod);
             try {
                 if (cDAO.verificaCod(c)) {
-
+                      
                 } else {
                     Mensagens.Aviso("O código informado não existe ou não esta cadastrado no banco de dados");
                     buscaCodCliente.requestFocus();
+                    buscaCodCliente.setEditable(true);
                 }
                 cDTO = cDAO.pegaBD(c);
                 botaoExclui.setEnabled(true);

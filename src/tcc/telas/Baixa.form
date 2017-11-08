@@ -152,6 +152,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Informe o c&#xf3;digo do produto a ser removido de estoque:"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscaCodProdKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoBusca">
       <Properties>

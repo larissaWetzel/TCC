@@ -48,7 +48,7 @@ public class AdmFace extends javax.swing.JFrame {
         calculaMalha = new javax.swing.JMenuItem();
         vendas = new javax.swing.JMenu();
         baixaEst = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        arcoIru = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -222,8 +222,8 @@ public class AdmFace extends javax.swing.JFrame {
 
         jMenuBar1.add(vendas);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/icon.png"))); // NOI18N
-        jMenuBar1.add(jMenu1);
+        arcoIru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tcc/icons/icon.png"))); // NOI18N
+        jMenuBar1.add(arcoIru);
 
         setJMenuBar(jMenuBar1);
 
@@ -352,6 +352,7 @@ public class AdmFace extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu arcoIru;
     private javax.swing.JMenuItem baixaEst;
     private javax.swing.JButton botaoCadastraClientes;
     private javax.swing.JButton botaoCadastraProdutos;
@@ -369,7 +370,6 @@ public class AdmFace extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
