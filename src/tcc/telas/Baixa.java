@@ -13,6 +13,8 @@ public class Baixa extends javax.swing.JFrame {
 
     public Baixa() {
         initComponents();
+        botaoRemove.setEnabled(false);
+        removeQnt.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -268,8 +270,12 @@ public class Baixa extends javax.swing.JFrame {
                 } else {
                     Mensagens.Aviso("O código informado não existe ou não esta cadastrado no banco de dados");
                     buscaCodProd.requestFocus();
+                    botaoRemove.setEnabled(false);
+                    removeQnt.setEditable(false);
                 }
                 pDTO = pDAO.pegaBD(c);
+                botaoRemove.setEnabled(true);
+                removeQnt.setEditable(true);
                 PanelDados.setVisible(true);
                 nome.setText(pDTO.getNomeProd());
                 String p = Float.toString(pDTO.getPrecoProd());
@@ -295,6 +301,8 @@ public class Baixa extends javax.swing.JFrame {
                 pDAO.baixaEstoque(total, c);
                 Mensagens.Info("Estoque atualizado \n"
                         + "Quantidade atual: " + total);
+                String q = Integer.toString(pDTO.getQntProd());
+                qtd.setText(q);
                 int y = pDTO.getQntProd() - Integer.parseInt(removeQnt.getText());
                 campoQnt.setText("" + y);
 
@@ -303,6 +311,8 @@ public class Baixa extends javax.swing.JFrame {
             } else {
                 Mensagens.Aviso("Quantidade inválida \n"
                         + "Deve ser maior que 1 e menor que " + pDTO.getQntProd() + ".");
+                String q = Integer.toString(pDTO.getQntProd());
+                qtd.setText(q);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

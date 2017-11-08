@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import tcc.DTO.AdmDTO;
 
 public class AdmDAO {
-    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3306/loja_vanetex?"
-            + "user=root&password=alunoifc";
+    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3307/loja_vanetex?"
+            + "user=root&password=root";
     
     public AdmDTO autenticaAdm(String nome, String senha) throws SQLException {
         // definição da String de conexão

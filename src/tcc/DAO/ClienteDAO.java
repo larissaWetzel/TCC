@@ -11,8 +11,8 @@ import tcc.DTO.ClienteDTO;
 
 
 public class ClienteDAO {
-    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3306/loja_vanetex?"
-            + "user=root&password=alunoifc";
+    private static final String STRING_CONEXAO = "jdbc:mysql://localhost:3307/loja_vanetex?"
+            + "user=root&password=root";
     
     public void cadastraClientes(String n, String f,String c,String email,String e) throws SQLException{
         

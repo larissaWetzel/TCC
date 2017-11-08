@@ -10,10 +10,12 @@ public class RemoveProduto extends javax.swing.JFrame {
     private String cod;
     ProdutoDAO pDAO = new ProdutoDAO();
     ProdutoDTO pDTO = new ProdutoDTO();
-
+    
     public RemoveProduto() {
         initComponents();
+        botaoExclui.setEnabled(false);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
